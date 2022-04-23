@@ -28,12 +28,12 @@ public class Archer : Enemy , IShoot , IKnockback
             if (directedMovement.GetDirectionToTarget().magnitude <= shootRange)
             {
                 Shoot();
-                LookAtTarget();
+                LookAtPlayer();
             }
             else if (directedMovement.GetDirectionToTarget().magnitude <= sightRange)
             {
                 directedMovement.Move();
-                LookAtTarget();
+                LookAtPlayer();
                 currentShootCd = 0;
             }
         }
@@ -55,10 +55,6 @@ public class Archer : Enemy , IShoot , IKnockback
         }
     }
 
-    void LookAtTarget()
-    {
-        transform.forward = directedMovement.GetDirectionToTarget();
-    }
 
     public override void Die()
     {

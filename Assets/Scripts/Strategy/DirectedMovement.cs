@@ -21,7 +21,7 @@ public class DirectedMovement : IMovement
         directionToTarget = GetDirectionToTarget().normalized;
 
         transform.position += directionToTarget * speed * Time.deltaTime;
-    } 
+    }
 
     public Vector3 GetDirectionToTarget()
     {

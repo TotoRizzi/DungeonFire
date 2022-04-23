@@ -52,6 +52,10 @@ public abstract class Enemy : MonoBehaviour , IDamageable, IDie
 
         if (currentHealth <= 0) Die();
     }
+    public virtual void LookAtPlayer()
+    {
+        transform.forward = player.transform.position - transform.position;
+    }
 
     public virtual void Knockback()
     {
@@ -72,6 +76,8 @@ public abstract class Enemy : MonoBehaviour , IDamageable, IDie
             }
         }
     }
+
+
     IEnumerator ResetTime(float t)
     {
         yield return new WaitForSeconds(t);

@@ -44,5 +44,6 @@ public class Slime : Enemy
     {
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         directedMovement.Move();
+        LookAtPlayer();
     }
 }
