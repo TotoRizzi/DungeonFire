@@ -5,6 +5,7 @@ using System;
 
 public class ObjectPool<T>
 {
+    //PRUEBA A VER SI FUNCIONA GITHUB
     Func<T> creationLogic;
 
     List<T> currentStock; 
