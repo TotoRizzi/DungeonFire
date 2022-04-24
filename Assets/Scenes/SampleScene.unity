@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -576,7 +576,6 @@ GameObject:
   - component: {fileID: 246991839}
   - component: {fileID: 246991842}
   - component: {fileID: 246991841}
-  - component: {fileID: 246991840}
   m_Layer: 0
   m_Name: Player_Nose
   m_TagString: Untagged
@@ -598,19 +597,6 @@ Transform:
   m_Father: {fileID: 1530284680}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &246991840
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246991838}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &246991841
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2793,7 +2779,6 @@ GameObject:
   - component: {fileID: 1151022836}
   - component: {fileID: 1151022839}
   - component: {fileID: 1151022838}
-  - component: {fileID: 1151022837}
   m_Layer: 0
   m_Name: Player_Body
   m_TagString: Untagged
@@ -2815,19 +2800,6 @@ Transform:
   m_Father: {fileID: 1390614645}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1151022837
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151022835}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1151022838
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3815,7 +3787,6 @@ GameObject:
   - component: {fileID: 1530284680}
   - component: {fileID: 1530284683}
   - component: {fileID: 1530284682}
-  - component: {fileID: 1530284681}
   m_Layer: 0
   m_Name: Player_Head
   m_TagString: Untagged
@@ -3838,19 +3809,6 @@ Transform:
   m_Father: {fileID: 1390614645}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1530284681
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530284679}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1530284682
 MeshRenderer:
   m_ObjectHideFlags: 0

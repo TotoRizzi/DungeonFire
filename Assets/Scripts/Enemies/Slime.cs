@@ -24,6 +24,7 @@ public class Slime : Enemy
     public override void Update()
     {
         base.Update();
+        LookAtPlayer();
 
         if (groundCheck.isGrounded)
         {
@@ -44,6 +45,5 @@ public class Slime : Enemy
     {
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         directedMovement.Move();
-        LookAtPlayer();
     }
 }

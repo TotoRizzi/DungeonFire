@@ -43,6 +43,7 @@ public abstract class Enemy : MonoBehaviour , IDamageable, IDie
     }
     public virtual void Die()
     {
+        Destroy(gameObject);
     }
 
     public virtual void TakeDamage(float dmg)
@@ -54,7 +55,10 @@ public abstract class Enemy : MonoBehaviour , IDamageable, IDie
     }
     public virtual void LookAtPlayer()
     {
-        transform.forward = player.transform.position - transform.position;
+        //transform.forward = player.transform.position - transform.position;
+        Vector3 dirToLook = player.transform.position;
+        dirToLook.y = transform.position.y;
+        transform.LookAt(dirToLook);
     }
 
     public virtual void Knockback()
