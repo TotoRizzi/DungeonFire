@@ -14,13 +14,13 @@ TagManager:
   - UI
   - Ground
   - GroundCheck
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - PlayerBullet
+  - EnemyAttack
+  - Wall
+  - DamageableNPCHitbox
+  - PlayerHitBox
   - 
   - 
   - 

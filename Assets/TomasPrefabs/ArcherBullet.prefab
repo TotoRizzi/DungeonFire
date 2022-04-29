@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 4741352079527862960}
   - component: {fileID: 2865717871281240185}
   - component: {fileID: 2632383176570349646}
-  m_Layer: 0
+  - component: {fileID: 5417503724314698505}
+  m_Layer: 11
   m_Name: ArcherBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +93,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5574097521169278973}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -111,6 +112,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25
   maxDistance: 6
+--- !u!114 &5417503724314698505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574097521169278973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c326d646b2c493f489dd7aabf8c622e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  instantDmg: 1
 --- !u!1 &6332954583634276630
 GameObject:
   m_ObjectHideFlags: 0

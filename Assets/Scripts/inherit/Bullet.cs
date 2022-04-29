@@ -6,7 +6,6 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] protected float speed;
     [SerializeField] protected float maxDistance = 3;
-    [SerializeField] protected float bulletDamage;
     protected float currentDistance = 0;
 
     public virtual void ShotCd()

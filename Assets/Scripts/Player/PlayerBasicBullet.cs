@@ -6,10 +6,13 @@ public class PlayerBasicBullet : Bullet
 {
     IMovement forwardMovement;
 
+    [SerializeField] float bulletDamage;
+
     private void Awake()
     {
         forwardMovement = new ForwardMovement(speed, transform);
     }
+
     private void Update()
     {
         forwardMovement.Move();
@@ -40,10 +43,11 @@ public class PlayerBasicBullet : Bullet
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<Enemy>() != null)
+        if(other.GetComponent<IDamageable>() != null)
         {
-            other.GetComponent<Enemy>().TakeDamage(bulletDamage);
+            other.GetComponent<IDamageable>().TakeDamage(bulletDamage, transform.position);
         }
+
         PlayerBasicBullet_Factory.instance.ReturnBullet(this);
     }
 }

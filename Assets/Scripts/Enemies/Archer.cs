@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Archer : Enemy , IShoot , IKnockback
 {
-    protected DirectedMovement directedMovement;
+    DirectedMovement directedMovement;
 
     #region ShootVariables IShoot
     [SerializeField] float maxShootCd;
@@ -16,7 +16,6 @@ public class Archer : Enemy , IShoot , IKnockback
     {
         base.Awake();
         directedMovement = new DirectedMovement(speed, transform, player.transform);
-
     }
 
     public override void Update()
@@ -25,19 +24,23 @@ public class Archer : Enemy , IShoot , IKnockback
 
         if (canMove)
         {
-            if (directedMovement.GetDirectionToTarget().magnitude <= shootRange)
+            Vector3 vectorToPlayer = (player.transform.position - transform.position);
+
+            if (SeePlayer(shootingPoint.position))
             {
-                Shoot();
-                LookAtPlayer();
-            }
-            else if (directedMovement.GetDirectionToTarget().magnitude <= sightRange)
-            {
-                directedMovement.Move();
-                LookAtPlayer();
-                currentShootCd = 0;
+                if (vectorToPlayer.magnitude <= shootRange)
+                {
+                    LookAtPlayer();
+                    Shoot();
+                }
+                else if (vectorToPlayer.magnitude <= sightRange)
+                {
+                    directedMovement.Move();
+                    LookAtPlayer();
+                    currentShootCd = 0;
+                }
             }
         }
-        
     }
 
     public void Shoot()
@@ -53,11 +56,5 @@ public class Archer : Enemy , IShoot , IKnockback
             b.transform.rotation = transform.rotation;
             currentShootCd = 0;
         }
-    }
-
-
-    public override void Die()
-    {
-        Destroy(this.gameObject);
     }
 }

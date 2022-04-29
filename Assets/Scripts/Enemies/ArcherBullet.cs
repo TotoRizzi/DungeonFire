@@ -33,4 +33,8 @@ public class ArcherBullet : Bullet
     {
         b.gameObject.SetActive(false);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        ArcherBullet_Factory.instance.ReturnBullet(this);
+    }
 }

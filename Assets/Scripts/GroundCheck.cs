@@ -8,13 +8,10 @@ public class GroundCheck : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        isGrounded = true;
-        Debug.Log("Entre");
+        isGrounded = true;        
     }
     private void OnTriggerExit(Collider other)
     {
         isGrounded = false;
-        Debug.Log("Sali");
-
     }
 }

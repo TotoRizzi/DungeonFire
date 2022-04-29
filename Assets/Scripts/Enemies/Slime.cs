@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Slime : Enemy
 {
-    //LA RECALCADA CONCHA DE TU REPUTISIMA MADRE
-
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCd;
     private float currentJumpCd;
+
+    [SerializeField] Collider enemyAttack;
 
     [SerializeField] private GroundCheck groundCheck;
     DirectedMovement directedMovement;
@@ -17,29 +17,38 @@ public class Slime : Enemy
     public override void Awake()
     {
         base.Awake();
-
         directedMovement = new DirectedMovement(speed, transform, player.transform);
         rb = GetComponent<Rigidbody>();
     }
     public override void Update()
     {
         base.Update();
-        LookAtPlayer();
 
-        if (groundCheck.isGrounded)
+        if (canMove)
         {
-            currentJumpCd += Time.deltaTime;
-            if(currentJumpCd >= jumpCd)
+            if (SeePlayer(transform.position))
             {
-                Jump();
-                currentJumpCd = 0;
+                LookAtPlayer();
+
+                if (groundCheck.isGrounded)
+                {
+                    enemyAttack.enabled = false;
+
+                    currentJumpCd += Time.deltaTime;
+
+                    if(currentJumpCd >= jumpCd)
+                    {
+                        Jump();
+                        currentJumpCd = 0;
+                    }
+                }
+                else
+                {
+                    directedMovement.Move();
+                    enemyAttack.enabled = true;
+                }
             }
         }
-        else
-        {
-            directedMovement.Move();
-        }
-        
     }
     private void Jump()
     {

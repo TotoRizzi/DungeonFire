@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour , IDamageable, IDie
+public abstract class Enemy : MonoBehaviour
 {
     protected Player player;
-
-    [SerializeField] protected float maxHealth;
-    protected float currentHealth;
 
     protected bool canMove = true;
     
@@ -25,40 +22,51 @@ public abstract class Enemy : MonoBehaviour , IDamageable, IDie
     [SerializeField] protected float resetTime;
     
     protected float currentKnockbackDuration;
-    protected DirectedMovement KnockBack;
+    protected KnockBackStrategy KnockBack;
     protected bool isInKnockback;
+
+    Vector3 lastDamageDealer;
 
     #endregion
 
     public virtual void Awake()
     {
-        currentHealth = maxHealth;
         player = FindObjectOfType<Player>();
-        KnockBack = new DirectedMovement(-knockbackForce, transform, player.transform);
+        KnockBack = new KnockBackStrategy(transform, knockbackForce);
     }
     
     public virtual void Update()
     {
         Knockback();
     }
-    public virtual void Die()
+
+    public void SetDamageDealer(Vector3 dmgDealer)
     {
-        Destroy(gameObject);
+        //BUG NO FUNCIONA NO SE PORQUE lastDamageDealer = dmgDealer;   
+
+        lastDamageDealer = player.transform.position;
     }
 
-    public virtual void TakeDamage(float dmg)
+    public void SetKnockBackToTrue()
     {
-        currentHealth -= dmg;
         isInKnockback = true;
-
-        if (currentHealth <= 0) Die();
     }
+
     public virtual void LookAtPlayer()
     {
         //transform.forward = player.transform.position - transform.position;
         Vector3 dirToLook = player.transform.position;
         dirToLook.y = transform.position.y;
         transform.LookAt(dirToLook);
+    }
+
+    protected Vector3 GetVectorToPlayer()
+    {
+        Vector3 dis = player.transform.position - transform.position;
+        dis.y = transform.position.y;
+        dis.Normalize();
+
+        return dis;
     }
 
     public virtual void Knockback()
@@ -68,7 +76,7 @@ public abstract class Enemy : MonoBehaviour , IDamageable, IDie
             if (currentKnockbackDuration < knockbackDuration)
             {
                 currentKnockbackDuration += Time.deltaTime;
-                KnockBack.Move();
+                KnockBack.Move(lastDamageDealer);
                 canMove = false;
             }
             else
@@ -81,6 +89,22 @@ public abstract class Enemy : MonoBehaviour , IDamageable, IDie
         }
     }
 
+    protected bool SeePlayer(Vector3 seePoint)
+    {
+        Vector3 vectorToPlayer = (player.transform.position - transform.position);
+        vectorToPlayer.y = transform.position.y;
+
+        RaycastHit ray;
+
+        if (Physics.Raycast(seePoint, vectorToPlayer.normalized, out ray, sightRange, (1 << LayerMask.NameToLayer("PlayerHitBox") | (1 << LayerMask.NameToLayer("Wall")))))
+        {
+            if (ray.transform.tag == "Player")
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
     IEnumerator ResetTime(float t)
     {

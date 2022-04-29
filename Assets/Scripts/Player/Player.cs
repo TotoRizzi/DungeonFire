@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IMovement
 {
+    #region Movement
     [SerializeField] Controller moveController;
     [SerializeField] Controller lookAndFireController;
 
@@ -13,23 +14,81 @@ public class Player : MonoBehaviour, IMovement
 
     [SerializeField] float maxSpeed;
     [SerializeField] float maxMovingForce;
+
+    bool canMove = true;
+    #endregion
+
+    #region Shooting
     [SerializeField] float ShotCd = .3f;
     float currentShotCd = 0;
 
     [SerializeField] Transform shootingPoint;
+    #endregion
+
+    #region KnockBack
+
+    KnockBackStrategy KnockBack;
+ 
+    [SerializeField] float knockbackForce;
+    [SerializeField] float knockbackDuration;
+    [SerializeField] float resetTime;
+    float currentKnockbackDuration;
+
+    Vector3 lastDamageDealer;
+
+    bool isInKnockback;
+
+    #endregion
+
+    public virtual void Knockback()
+    {
+        if (isInKnockback)
+        {
+            if (currentKnockbackDuration < knockbackDuration)
+            {
+                currentKnockbackDuration += Time.deltaTime;
+                KnockBack.Move(lastDamageDealer);
+                canMove = false;
+            }
+            else
+            {
+                currentKnockbackDuration = 0;
+
+                StartCoroutine(ResetTime(resetTime));
+            }
+        }
+    }
+    IEnumerator ResetTime(float t)
+    {
+        yield return new WaitForSeconds(t);
+
+        isInKnockback = false;
+        canMove = true;
+    }
+
+    private void Awake()
+    {
+        KnockBack = new KnockBackStrategy(transform, knockbackForce);
+    }
+
     private void Update()
     {
-        Move();
-        Look();
-        Debug.Log("Funciona");
+        if (canMove)
+        {
+            Move();
+            Look();
+        }
+
+        Knockback();
     }
+
     public void Move()
     {
-       
+
         dirToMove = moveController.GetDir();
         dirToMove.Normalize();
         dirToMove *= maxSpeed;
-       
+
         Vector3 steering = dirToMove - velocity;
         steering = Vector3.ClampMagnitude(steering, maxMovingForce);
         ApplyForce(steering);
@@ -38,27 +97,6 @@ public class Player : MonoBehaviour, IMovement
         if (velocity == Vector3.zero)
             return;
         transform.forward = velocity;
-       
-        /*
-        if (dirToMove != Vector3.zero)
-        {
-            ApplyForce(dirToMove);
-            transform.position += velocity * Time.deltaTime;
-            currentMoveVelocity = dirToMove;
-        }
-        else
-        {
-            ApplyForce(-currentMoveVelocity);
-            currentMoveVelocity = Vector3.zero;
-        }
-        */
-        
-    }
-
-    private void ApplyForce(Vector3 force)
-    {
-        velocity += force;
-        velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
     }
 
     private void Look()
@@ -76,6 +114,13 @@ public class Player : MonoBehaviour, IMovement
             dirToLook = moveController.GetDir();
         }
     }
+
+    private void ApplyForce(Vector3 force)
+    {
+        velocity += force;
+        velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+    }
+
     private void Shoot()
     {
         currentShotCd += Time.deltaTime;
@@ -89,5 +134,17 @@ public class Player : MonoBehaviour, IMovement
             b.transform.rotation = transform.rotation;
             currentShotCd = 0;
         }
+    }
+
+    public void SetDamageDealer(Vector3 dmgDealer)
+    {
+        //BUG NO FUNCIONA NO SE PORQUE lastDamageDealer = dmgDealer;   
+
+        lastDamageDealer = dmgDealer;
+    }
+
+    public void SetKnockBackToTrue()
+    {
+        if(!isInKnockback) isInKnockback = true;
     }
 }
