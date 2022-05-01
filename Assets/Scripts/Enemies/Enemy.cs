@@ -22,7 +22,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float resetTime;
     
     protected float currentKnockbackDuration;
-    protected KnockBackStrategy KnockBack;
+    protected KnockBackStrategy knockBack;
     protected bool isInKnockback;
 
     Vector3 lastDamageDealer;
@@ -32,7 +32,7 @@ public abstract class Enemy : MonoBehaviour
     public virtual void Awake()
     {
         player = FindObjectOfType<Player>();
-        KnockBack = new KnockBackStrategy(transform, knockbackForce);
+        knockBack = new KnockBackStrategy(transform, knockbackForce);
     }
     
     public virtual void Update()
@@ -76,7 +76,8 @@ public abstract class Enemy : MonoBehaviour
             if (currentKnockbackDuration < knockbackDuration)
             {
                 currentKnockbackDuration += Time.deltaTime;
-                KnockBack.Move(lastDamageDealer);
+                knockBack.SetVariables(lastDamageDealer);
+                knockBack.Move();
                 canMove = false;
             }
             else

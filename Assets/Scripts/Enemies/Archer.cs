@@ -49,11 +49,7 @@ public class Archer : Enemy , IShoot , IKnockback
 
         if (currentShootCd >= maxShootCd)
         {
-            //Crea las balas llamandolas al factory
-
-            var b = ArcherBullet_Factory.instance.pool.GetObject();
-            b.transform.position = shootingPoint.position;
-            b.transform.rotation = transform.rotation;
+            ArcherBullet_Factory.instance.pool.GetObject().SetPosition(shootingPoint.position).SetRotation(transform.rotation);
             currentShootCd = 0;
         }
     }

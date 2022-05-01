@@ -18,4 +18,15 @@ public class Bullet : MonoBehaviour
     {
         currentDistance = 0;
     }
+
+    public Bullet SetPosition(Vector3 position)
+    {
+        transform.position = position;
+        return this;
+    }
+    public Bullet SetRotation(Quaternion rotation)
+    {
+        transform.rotation = rotation;
+        return this;
+    }
 }

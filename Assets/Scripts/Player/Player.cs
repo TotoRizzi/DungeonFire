@@ -27,7 +27,7 @@ public class Player : MonoBehaviour, IMovement
 
     #region KnockBack
 
-    KnockBackStrategy KnockBack;
+    KnockBackStrategy knockBack;
  
     [SerializeField] float knockbackForce;
     [SerializeField] float knockbackDuration;
@@ -47,7 +47,8 @@ public class Player : MonoBehaviour, IMovement
             if (currentKnockbackDuration < knockbackDuration)
             {
                 currentKnockbackDuration += Time.deltaTime;
-                KnockBack.Move(lastDamageDealer);
+                knockBack.SetVariables(lastDamageDealer);
+                knockBack.Move();
                 canMove = false;
             }
             else
@@ -68,7 +69,7 @@ public class Player : MonoBehaviour, IMovement
 
     private void Awake()
     {
-        KnockBack = new KnockBackStrategy(transform, knockbackForce);
+        knockBack = new KnockBackStrategy(transform, knockbackForce);
     }
 
     private void Update()
@@ -127,19 +128,13 @@ public class Player : MonoBehaviour, IMovement
 
         if (currentShotCd >= ShotCd)
         {
-            //Crea las balas llamandolas al factory
-
-            var b = PlayerBasicBullet_Factory.instance.pool.GetObject();
-            b.transform.position = shootingPoint.position;
-            b.transform.rotation = transform.rotation;
+            PlayerBasicBullet_Factory.instance.pool.GetObject().SetPosition(shootingPoint.position).SetRotation(transform.rotation);
             currentShotCd = 0;
         }
     }
 
     public void SetDamageDealer(Vector3 dmgDealer)
     {
-        //BUG NO FUNCIONA NO SE PORQUE lastDamageDealer = dmgDealer;   
-
         lastDamageDealer = dmgDealer;
     }
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class HealthBar : MonoBehaviour
 {
@@ -12,10 +13,10 @@ public class HealthBar : MonoBehaviour
     float maxHealth;
 
     float delayTime = 2f;
-    float currentDelayTime = 0;
 
     private void Update()
     { 
+        /*
         if (setDelayedHealthBar)
         {
             currentDelayTime += Time.deltaTime;
@@ -26,6 +27,7 @@ public class HealthBar : MonoBehaviour
                 setDelayedHealthBar = false;
             }
         }
+        */
     }
 
     public void SetHealthBar(float _currentHealth, float _maxHealth)
@@ -34,8 +36,20 @@ public class HealthBar : MonoBehaviour
         maxHealth = _maxHealth;
         
         healthBar.fillAmount = currentHealth / maxHealth;
-       
-        setDelayedHealthBar = true;
-        currentDelayTime = 0;
+
+        //setDelayedHealthBar = true;
+        StartCoroutine(SetDelayedHB());
+    }
+
+    IEnumerator SetDelayedHB()
+    {
+        while (delayedHealthBar.fillAmount >= currentHealth / maxHealth)
+        {
+            delayedHealthBar.fillAmount = Mathf.Lerp(delayedHealthBar.fillAmount, currentHealth / maxHealth, delayTime * Time.deltaTime);
+            Debug.Log("Tuki");
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        
+        yield return null;
     }
 }
