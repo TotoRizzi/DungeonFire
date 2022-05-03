@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IMovement
+public class Player : MonoBehaviour, IMovement, IDie
 {
     #region Movement
     [SerializeField] Controller moveController;
@@ -16,19 +16,19 @@ public class Player : MonoBehaviour, IMovement
     [SerializeField] float maxMovingForce;
 
     bool canMove = true;
+    bool isDead;
     #endregion
 
     #region Shooting
     [SerializeField] float ShotCd = .3f;
-    float currentShotCd = 0;
+    float currentShotCd;
 
-    [SerializeField] Transform shootingPoint;
     #endregion
 
     #region KnockBack
 
     KnockBackStrategy knockBack;
- 
+
     [SerializeField] float knockbackForce;
     [SerializeField] float knockbackDuration;
     [SerializeField] float resetTime;
@@ -40,10 +40,14 @@ public class Player : MonoBehaviour, IMovement
 
     #endregion
 
+    [SerializeField] Animator anim;
+
     public virtual void Knockback()
     {
         if (isInKnockback)
         {
+            anim.SetBool("hit", true);
+
             if (currentKnockbackDuration < knockbackDuration)
             {
                 currentKnockbackDuration += Time.deltaTime;
@@ -58,28 +62,34 @@ public class Player : MonoBehaviour, IMovement
                 StartCoroutine(ResetTime(resetTime));
             }
         }
+        else anim.SetBool("hit", false);
     }
     IEnumerator ResetTime(float t)
     {
         yield return new WaitForSeconds(t);
 
         isInKnockback = false;
-        canMove = true;
+        if(!isDead) canMove = true;
     }
 
     private void Awake()
     {
         knockBack = new KnockBackStrategy(transform, knockbackForce);
+        currentShotCd = ShotCd;
     }
 
     private void Update()
     {
         if (canMove)
         {
+            Debug.Log("CanMove");
             Move();
             Look();
         }
-
+        else
+        {
+            Debug.Log("Cant Move");
+        }
         Knockback();
     }
 
@@ -94,10 +104,15 @@ public class Player : MonoBehaviour, IMovement
         steering = Vector3.ClampMagnitude(steering, maxMovingForce);
         ApplyForce(steering);
 
-        transform.position += velocity * Time.deltaTime;
         if (velocity == Vector3.zero)
+        {
+            anim.SetBool("isRunning", false);
             return;
+        }
+        transform.position += velocity * Time.deltaTime;
         transform.forward = velocity;
+
+        anim.SetBool("isRunning", true);
     }
 
     private void Look()
@@ -128,8 +143,12 @@ public class Player : MonoBehaviour, IMovement
 
         if (currentShotCd >= ShotCd)
         {
-            PlayerBasicBullet_Factory.instance.pool.GetObject().SetPosition(shootingPoint.position).SetRotation(transform.rotation);
+            anim.SetBool("attack", true);
             currentShotCd = 0;
+        }
+        else
+        {
+            anim.SetBool("attack", false);
         }
     }
 
@@ -140,6 +159,19 @@ public class Player : MonoBehaviour, IMovement
 
     public void SetKnockBackToTrue()
     {
-        if(!isInKnockback) isInKnockback = true;
+        if (!isInKnockback) isInKnockback = true;
+    }
+
+    public void Die()
+    {
+        anim.SetTrigger("die");
+        canMove = false;
+        isDead = true;
+    }
+    public void Revive()
+    {
+        isDead = false;
+        canMove = true;
+        anim.SetTrigger("revive");
     }
 }

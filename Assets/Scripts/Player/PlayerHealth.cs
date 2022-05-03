@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour, IDamageable, IDie
+public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] float maxHealth = 10;
     float currentHealth;
@@ -31,11 +31,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable, IDie
 
         player.SetDamageDealer(damageDealer);
 
-        if (currentHealth <= 0) Die();
-    }
-
-    public void Die()
-    {
-        Debug.Log("MORISTE");
+        if (currentHealth <= 0) player.Die();
     }
 }
