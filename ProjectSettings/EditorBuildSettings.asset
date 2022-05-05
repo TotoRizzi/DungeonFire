@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: e9983ed91efb143409eee35d005a98dc
+  - enabled: 1
     path: Assets/Scenes/The Real deal.unity
     guid: 8bf8251d67e3d0f43818142e11b8b2e9
+  - enabled: 1
+    path: Assets/Scenes/level 1.unity
+    guid: 01ef70a097f92d14abeac3b8564d8fd6
   m_configObjects: {}
