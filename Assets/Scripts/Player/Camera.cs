@@ -10,6 +10,10 @@ public class Camera : MonoBehaviour
  
     [SerializeField] Vector3 offset;
 
+    private void Awake()
+    {
+        targetToFollow = GameObject.Find("CameraLookAt").transform;
+    }
     private void LateUpdate()
     {
         /*

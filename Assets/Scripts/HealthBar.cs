@@ -14,22 +14,6 @@ public class HealthBar : MonoBehaviour
 
     float delayTime = 2f;
 
-    private void Update()
-    { 
-        /*
-        if (setDelayedHealthBar)
-        {
-            currentDelayTime += Time.deltaTime;
-            delayedHealthBar.fillAmount = Mathf.Lerp(delayedHealthBar.fillAmount, currentHealth / maxHealth, currentDelayTime * delayTime * .05f);
-            
-            if(currentDelayTime >= 2)
-            {
-                setDelayedHealthBar = false;
-            }
-        }
-        */
-    }
-
     public void SetHealthBar(float _currentHealth, float _maxHealth)
     {
         currentHealth = _currentHealth;

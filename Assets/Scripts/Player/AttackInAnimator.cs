@@ -6,8 +6,14 @@ public class AttackInAnimator : MonoBehaviour
 {
     [SerializeField] Transform shootingPoint;
 
+    private void Awake()
+    {
+        shootingPoint = GameObject.Find("ShootingPoint").transform;
+    }
     public void Attack()
     {
-        PlayerBasicBullet_Factory.instance.pool.GetObject().SetPosition(shootingPoint.position).SetRotation(transform.rotation);
+        if (shootingPoint != null)
+            PlayerBasicBullet_Factory.instance.pool.GetObject().SetPosition(shootingPoint.position).SetRotation(transform.rotation);
+        else Debug.Log("No hay shootingPoint");
     }
 }

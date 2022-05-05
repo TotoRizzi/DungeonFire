@@ -88,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 2297692615799562689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.25, z: 0}
-  m_LocalScale: {x: 0.45065865, y: 0.45065865, z: 0.45065865}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6273094190641508918}
   - {fileID: 2297692615966805825}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveController: {fileID: 0}
   lookAndFireController: {fileID: 0}
-  maxSpeed: 10
+  maxSpeed: 6
   maxMovingForce: 0.5
   ShotCd: 0.3
   knockbackForce: 5
@@ -335,7 +335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2297692616928375153}
   m_Layer: 0
-  m_Name: CamaraLookAt
+  m_Name: CameraLookAt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -349,7 +349,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2297692616928375158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.59, z: 2.8}
+  m_LocalPosition: {x: -0, y: 1.59, z: 3.811}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2297692615799562688}
