@@ -42,35 +42,6 @@ public class Player : MonoBehaviour, IMovement, IDie
 
     [SerializeField] Animator anim;
 
-    public virtual void Knockback()
-    {
-        if (isInKnockback)
-        {
-            anim.SetBool("hit", true);
-
-            if (currentKnockbackDuration < knockbackDuration)
-            {
-                currentKnockbackDuration += Time.deltaTime;
-                knockBack.SetVariables(lastDamageDealer);
-                knockBack.Move();
-                canMove = false;
-            }
-            else
-            {
-                currentKnockbackDuration = 0;
-
-                StartCoroutine(ResetTime(resetTime));
-            }
-        }
-        else anim.SetBool("hit", false);
-    }
-    IEnumerator ResetTime(float t)
-    {
-        yield return new WaitForSeconds(t);
-
-        isInKnockback = false;
-        if(!isDead) canMove = true;
-    }
 
     private void Awake()
     {
@@ -173,5 +144,34 @@ public class Player : MonoBehaviour, IMovement, IDie
         isDead = false;
         canMove = true;
         anim.SetTrigger("revive");
+    }
+    public virtual void Knockback()
+    {
+        if (isInKnockback)
+        {
+            anim.SetBool("hit", true);
+
+            if (currentKnockbackDuration < knockbackDuration)
+            {
+                currentKnockbackDuration += Time.deltaTime;
+                knockBack.SetVariables(lastDamageDealer);
+                knockBack.Move();
+                canMove = false;
+            }
+            else
+            {
+                currentKnockbackDuration = 0;
+
+                StartCoroutine(ResetTime(resetTime));
+            }
+        }
+        else anim.SetBool("hit", false);
+    }
+    IEnumerator ResetTime(float t)
+    {
+        yield return new WaitForSeconds(t);
+
+        isInKnockback = false;
+        if(!isDead) canMove = true;
     }
 }

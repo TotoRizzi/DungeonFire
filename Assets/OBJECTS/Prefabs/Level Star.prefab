@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7634143794463140718}
   - component: {fileID: 7626114120848190266}
   - component: {fileID: 7499006194799280512}
-  - component: {fileID: 7603430772354936037}
-  - component: {fileID: 7603430772354936034}
+  - component: {fileID: 1090942472}
+  - component: {fileID: 1090942471}
   m_Layer: 0
   m_Name: Level Star
   m_TagString: Untagged
@@ -105,24 +105,23 @@ MonoBehaviour:
   floatSpeed: 0.001
   floatRate: 0.9
   startScale: {x: 0.2, y: 0.2, z: 0.2}
-  endScale: {x: 0.2, y: 0.2, z: 0.2}
+  endScale: {x: 0.4, y: 0.4, z: 0.4}
   scaleSpeed: 1
   scaleRate: 0.5
---- !u!64 &7603430772354936037
-MeshCollider:
+--- !u!65 &1090942472
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7604149308466761356}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 9d0e73dbf5dfc6e4e800cbe52651ac4d, type: 3}
---- !u!114 &7603430772354936034
+  serializedVersion: 2
+  m_Size: {x: 3.2666113, y: 3.8375459, z: 3.565652}
+  m_Center: {x: -0.06845757, y: 0.14277875, z: 0.45168695}
+--- !u!114 &1090942471
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,18 +130,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7604149308466761356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
+  m_Script: {fileID: 11500000, guid: 494843b05486d5d4f9be11189fadb740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAnimated: 0
-  isRotating: 0
-  isFloating: 0
-  isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 0}
-  rotationSpeed: 0
-  floatSpeed: 0
-  floatRate: 0
-  startScale: {x: 0, y: 0, z: 0}
-  endScale: {x: 0, y: 0, z: 0}
-  scaleSpeed: 0
-  scaleRate: 0
+  lvlToGo: 0
