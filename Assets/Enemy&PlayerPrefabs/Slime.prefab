@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 1.8048673}
-  m_Center: {x: 0, y: 0, z: -0.097566254}
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: -0.03}
 --- !u!114 &1999915736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,13 +184,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2871b3c5b7f177f48a145593c252ffaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   sightRange: 200
   shootRange: 0
   knockbackForce: 10
   knockbackDuration: 0.1
   resetTime: 0.3
-  jumpForce: 6
+  jumpForce: 4
   jumpCd: 2
   enemyAttack: {fileID: 2848841312923938582}
   groundCheck: {fileID: 2848841313802323457}
@@ -291,8 +291,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2848841313871654900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.683}
-  m_LocalScale: {x: 0.38394, y: 0.38394, z: 0.38394}
+  m_LocalPosition: {x: 0, y: 0, z: 0.411}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
   m_Father: {fileID: 2848841312963620059}
   m_RootOrder: 1
@@ -373,7 +373,7 @@ Transform:
   m_GameObject: {fileID: 2848841314048106714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 2848841312963620059}
   m_RootOrder: 0

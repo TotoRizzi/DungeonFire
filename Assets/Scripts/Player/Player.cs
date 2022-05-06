@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, IMovement, IDie
 {
@@ -53,13 +54,8 @@ public class Player : MonoBehaviour, IMovement, IDie
     {
         if (canMove)
         {
-            Debug.Log("CanMove");
             Move();
             Look();
-        }
-        else
-        {
-            Debug.Log("Cant Move");
         }
         Knockback();
     }
@@ -138,6 +134,7 @@ public class Player : MonoBehaviour, IMovement, IDie
         anim.SetTrigger("die");
         canMove = false;
         isDead = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void Revive()
     {

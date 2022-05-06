@@ -26,7 +26,7 @@ public class Archer : Enemy , IShoot , IKnockback
         {
             Vector3 vectorToPlayer = (player.transform.position - transform.position);
 
-            if (SeePlayer(shootingPoint.position))
+            if (SeePlayer())
             {
                 if (vectorToPlayer.magnitude <= shootRange)
                 {

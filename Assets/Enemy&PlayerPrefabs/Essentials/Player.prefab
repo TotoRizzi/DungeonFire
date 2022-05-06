@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162dd37492f75764cbb51209878aefde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 10
   healthBar: {fileID: 8304765790708219154}
 --- !u!1 &8304765790532572056
 GameObject:

@@ -30,7 +30,6 @@ public class HealthBar : MonoBehaviour
         while (delayedHealthBar.fillAmount >= currentHealth / maxHealth)
         {
             delayedHealthBar.fillAmount = Mathf.Lerp(delayedHealthBar.fillAmount, currentHealth / maxHealth, delayTime * Time.deltaTime);
-            Debug.Log("Tuki");
             yield return new WaitForSeconds(Time.deltaTime);
         }
         

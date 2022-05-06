@@ -26,7 +26,7 @@ public class Slime : Enemy
 
         if (canMove)
         {
-            if (SeePlayer(transform.position))
+            if (SeePlayer())
             {
                 LookAtPlayer();
 

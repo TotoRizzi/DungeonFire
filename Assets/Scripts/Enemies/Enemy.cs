@@ -90,14 +90,13 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    protected bool SeePlayer(Vector3 seePoint)
+    protected bool SeePlayer()
     {
         Vector3 vectorToPlayer = (player.transform.position - transform.position);
-        vectorToPlayer.y = transform.position.y;
+        vectorToPlayer.y = 1;
 
         RaycastHit ray;
-
-        if (Physics.Raycast(seePoint, vectorToPlayer.normalized, out ray, sightRange, (1 << LayerMask.NameToLayer("PlayerHitBox") | (1 << LayerMask.NameToLayer("Wall")))))
+        if (Physics.Raycast(transform.position, vectorToPlayer, out ray, sightRange, (1 << LayerMask.NameToLayer("PlayerHitBox") | (1 << LayerMask.NameToLayer("Wall")))))
         {
             if (ray.transform.tag == "Player")
             {
