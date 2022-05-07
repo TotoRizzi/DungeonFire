@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe23745ebc95c20479d77aa582fcedb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 3
   currentHealth: 0
   thisEnemy: {fileID: 2848841312963620053}
 --- !u!1 &2848841312923938579
@@ -186,9 +186,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2871b3c5b7f177f48a145593c252ffaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  myColliders: []
+  rb: {fileID: 0}
+  canMove: 1
+  isDead: 0
   speed: 3
   sightRange: 200
-  shootRange: 0
+  attackRange: 0
   knockbackForce: 10
   knockbackDuration: 0.1
   resetTime: 0.3

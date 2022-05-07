@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2865717871281240185}
   - component: {fileID: 2632383176570349646}
   - component: {fileID: 5417503724314698505}
+  - component: {fileID: 4867801000733298487}
   m_Layer: 11
   m_Name: ArcherBullet
   m_TagString: Untagged
@@ -125,7 +126,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  instantDmg: 1
+  resetAttackColliderTime: 0
+  attackType: 0
+--- !u!54 &4867801000733298487
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574097521169278973}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6332954583634276630
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +155,6 @@ GameObject:
   - component: {fileID: 1480490138137291240}
   - component: {fileID: 535016153604962529}
   - component: {fileID: 2483181731200847407}
-  - component: {fileID: 3019720106285361564}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -208,16 +225,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3019720106285361564
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6332954583634276630}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

@@ -25,7 +25,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IDie
     }
     public virtual void Die()
     {
-        thisEnemy.anim.SetTrigger("die");
+        if (thisEnemy.anim != null) thisEnemy.anim.SetTrigger("die");
+        else Destroy(this.thisEnemy.gameObject);
 
         thisEnemy.canMove = false;
         thisEnemy.isDead = true;
@@ -36,4 +37,5 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IDie
             Debug.Log("ApagandoColliders");
         }
     }
+
 }

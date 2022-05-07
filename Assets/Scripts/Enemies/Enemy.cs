@@ -16,7 +16,7 @@ public abstract class Enemy : MonoBehaviour
 
     [SerializeField] protected float speed;
     [SerializeField] protected float sightRange;
-    [SerializeField] protected float shootRange;
+    [SerializeField] protected float attackRange;
     #endregion
 
     #region KnockbackVariables

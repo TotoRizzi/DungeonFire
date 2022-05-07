@@ -13,7 +13,8 @@ public class EnemyAttack : MonoBehaviour
     private enum EnemyAttackType
     {
         Bullet,
-        Slime
+        Slime,
+        Golem
     }
     [SerializeField] EnemyAttackType attackType; 
 

@@ -151,7 +151,14 @@ public class Player : MonoBehaviour, IMovement, IDie
             if (currentKnockbackDuration < knockbackDuration)
             {
                 currentKnockbackDuration += Time.deltaTime;
+                
                 knockBack.SetVariables(lastDamageDealer);
+
+                Vector3 lookAtLastDmgDealer = lastDamageDealer-transform.position;
+                lookAtLastDmgDealer.y = transform.position.y;
+
+                transform.forward = lookAtLastDmgDealer;
+
                 knockBack.Move();
                 canMove = false;
             }
