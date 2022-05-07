@@ -11,13 +11,11 @@ public class Archer : Enemy , IShoot , IKnockback
     float currentShootCd;
     #endregion
 
-    Animator anim;
 
     public override void Awake()
     {
         base.Awake();
         directedMovement = new DirectedMovement(speed, transform, player.transform);
-        anim = GetComponentInChildren<Animator>();
     }
 
     public override void Update()

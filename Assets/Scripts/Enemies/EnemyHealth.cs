@@ -25,6 +25,15 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IDie
     }
     public virtual void Die()
     {
-        Destroy(thisEnemy.gameObject);
+        thisEnemy.anim.SetTrigger("die");
+
+        thisEnemy.canMove = false;
+        thisEnemy.isDead = true;
+        thisEnemy.rb.isKinematic = true;
+        for (int i = 0; i < thisEnemy.myColliders.Length; i++)
+        {
+            thisEnemy.myColliders[i].enabled = false;
+            Debug.Log("ApagandoColliders");
+        }
     }
 }

@@ -6,8 +6,12 @@ public abstract class Enemy : MonoBehaviour
 {
     protected Player player;
 
-    protected bool canMove = true;
-    
+    public Animator anim;
+    public BoxCollider[] myColliders;
+    public Rigidbody rb;
+
+    public bool canMove = true;
+    public bool isDead = false;
     #region MovementVariables
 
     [SerializeField] protected float speed;
@@ -33,8 +37,11 @@ public abstract class Enemy : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
         knockBack = new KnockBackStrategy(transform, knockbackForce);
+
+        anim = GetComponentInChildren<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
-    
+
     public virtual void Update()
     {
         Knockback();
@@ -109,7 +116,7 @@ public abstract class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
 
-        canMove = true;
+        if(!isDead) canMove = true;
     }
 
 

@@ -8,10 +8,12 @@ public class JoyStickController : Controller, IDragHandler, IEndDragHandler
     Vector3 inicialPosition;
     Vector3 dir;
 
-    [SerializeField] float maxJoyStickRange;
+    float maxJoyStickRange;
+    [SerializeField] float joyStickScreenPercentage;
 
     private void Start()
     {
+        maxJoyStickRange = Screen.height / joyStickScreenPercentage;
         inicialPosition = transform.position;
     }
     public override Vector3 GetDir()
