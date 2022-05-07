@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackInAnimator : MonoBehaviour
+public class PlayerAttackInAnimator : MonoBehaviour
 {
     [SerializeField] Transform shootingPoint;
 
