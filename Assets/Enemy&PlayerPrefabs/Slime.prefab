@@ -118,6 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  resetAttackColliderTime: 1.5
+  attackType: 1
 --- !u!1 &2848841312963620052
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +194,6 @@ MonoBehaviour:
   resetTime: 0.3
   jumpForce: 4
   jumpCd: 2
-  enemyAttack: {fileID: 2848841312923938582}
   groundCheck: {fileID: 2848841313802323457}
 --- !u!65 &2848841312963620056
 BoxCollider:

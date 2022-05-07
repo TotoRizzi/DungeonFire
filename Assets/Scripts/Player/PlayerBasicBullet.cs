@@ -7,10 +7,13 @@ public class PlayerBasicBullet : Bullet
     IMovement forwardMovement;
 
     [SerializeField] float bulletDamage;
+    
+    [SerializeField] Transform player;
 
     private void Awake()
     {
         forwardMovement = new ForwardMovement(speed, transform);
+        player = GameObject.Find("Player").transform;
     }
 
     private void Update()
@@ -45,7 +48,7 @@ public class PlayerBasicBullet : Bullet
     {
         if(other.GetComponent<IDamageable>() != null)
         {
-            other.GetComponent<IDamageable>().TakeDamage(bulletDamage, transform.position);
+            other.GetComponent<IDamageable>().TakeDamage(bulletDamage, player.position);
         }
 
         PlayerBasicBullet_Factory.instance.ReturnBullet(this);

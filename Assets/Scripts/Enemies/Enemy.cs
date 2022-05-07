@@ -42,9 +42,7 @@ public abstract class Enemy : MonoBehaviour
 
     public void SetDamageDealer(Vector3 dmgDealer)
     {
-        //BUG NO FUNCIONA NO SE PORQUE lastDamageDealer = dmgDealer;   
-
-        lastDamageDealer = player.transform.position;
+        lastDamageDealer = dmgDealer;   
     }
 
     public void SetKnockBackToTrue()
@@ -69,6 +67,7 @@ public abstract class Enemy : MonoBehaviour
         return dis;
     }
 
+    
     public virtual void Knockback()
     {
         if (isInKnockback)
@@ -89,7 +88,7 @@ public abstract class Enemy : MonoBehaviour
             }
         }
     }
-
+   
     protected bool SeePlayer()
     {
         Vector3 vectorToPlayer = (player.transform.position - transform.position);

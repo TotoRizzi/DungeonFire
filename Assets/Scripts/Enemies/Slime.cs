@@ -8,8 +8,6 @@ public class Slime : Enemy
     [SerializeField] private float jumpCd;
     private float currentJumpCd;
 
-    [SerializeField] Collider enemyAttack;
-
     [SerializeField] private GroundCheck groundCheck;
     DirectedMovement directedMovement;
     Rigidbody rb;
@@ -24,29 +22,25 @@ public class Slime : Enemy
     {
         base.Update();
 
-        if (canMove)
+        if (!canMove) return;
+
+        if (SeePlayer())
         {
-            if (SeePlayer())
+            LookAtPlayer();
+
+            if (groundCheck.isGrounded)
             {
-                LookAtPlayer();
+                currentJumpCd += Time.deltaTime;
 
-                if (groundCheck.isGrounded)
+                if(currentJumpCd >= jumpCd)
                 {
-                    enemyAttack.enabled = false;
-
-                    currentJumpCd += Time.deltaTime;
-
-                    if(currentJumpCd >= jumpCd)
-                    {
-                        Jump();
-                        currentJumpCd = 0;
-                    }
+                    Jump();
+                    currentJumpCd = 0;
                 }
-                else
-                {
-                    directedMovement.Move();
-                    enemyAttack.enabled = true;
-                }
+            }
+            else
+            {
+                directedMovement.Move();
             }
         }
     }

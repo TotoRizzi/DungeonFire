@@ -27,10 +27,13 @@ public class HealthBar : MonoBehaviour
 
     IEnumerator SetDelayedHB()
     {
-        while (delayedHealthBar.fillAmount >= currentHealth / maxHealth)
+        float ticks = 0;
+        float initialFillAmount = delayedHealthBar.fillAmount;
+        while (ticks < 1)
         {
-            delayedHealthBar.fillAmount = Mathf.Lerp(delayedHealthBar.fillAmount, currentHealth / maxHealth, delayTime * Time.deltaTime);
-            yield return new WaitForSeconds(Time.deltaTime);
+            ticks += Time.deltaTime;
+            delayedHealthBar.fillAmount = Mathf.Lerp(initialFillAmount, currentHealth / maxHealth, ticks);
+            yield return new WaitForEndOfFrame();
         }
         
         yield return null;
