@@ -40251,6 +40251,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Archer
       objectReference: {fileID: 0}
+    - target: {fileID: 1376876595366368051, guid: b959ed2aeb3ae434ba6d85e247714564, type: 3}
+      propertyPath: attackRange
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1376876595366368079, guid: b959ed2aeb3ae434ba6d85e247714564, type: 3}
       propertyPath: m_RootOrder
       value: 0
