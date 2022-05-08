@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, IMovement, IDie
 {
@@ -62,7 +61,6 @@ public class Player : MonoBehaviour, IMovement, IDie
 
     public void Move()
     {
-
         dirToMove = moveController.GetDir();
         dirToMove.Normalize();
         dirToMove *= maxSpeed;
@@ -134,14 +132,16 @@ public class Player : MonoBehaviour, IMovement, IDie
         anim.SetTrigger("die");
         canMove = false;
         isDead = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.instance.LevelFailed();
     }
+
     public void Revive()
     {
         isDead = false;
         canMove = true;
         anim.SetTrigger("revive");
     }
+
     public virtual void Knockback()
     {
         if (isInKnockback)
@@ -171,6 +171,7 @@ public class Player : MonoBehaviour, IMovement, IDie
         }
         else anim.SetBool("hit", false);
     }
+
     IEnumerator ResetTime(float t)
     {
         yield return new WaitForSeconds(t);

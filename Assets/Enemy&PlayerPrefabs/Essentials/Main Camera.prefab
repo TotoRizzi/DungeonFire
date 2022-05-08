@@ -97,5 +97,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetToFollow: {fileID: 0}
-  cameraSpeed: 0.06
+  cameraSpeed: 0.03
   offset: {x: 0, y: 12, z: -6}

@@ -41,6 +41,10 @@ public abstract class Enemy : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
     }
+    private void Start()
+    {
+        GameManager.instance.AddEnemy(this);
+    }
 
     public virtual void Update()
     {
