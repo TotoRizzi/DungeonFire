@@ -237,18 +237,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4293717392552796201, guid: 64ec47b460b130d4ebc3f1448f2e4603, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4293717392552796201, guid: 64ec47b460b130d4ebc3f1448f2e4603, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4293717392552796201, guid: 64ec47b460b130d4ebc3f1448f2e4603, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4293717392552796201, guid: 64ec47b460b130d4ebc3f1448f2e4603, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -288,13 +276,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8304765790885584986, guid: 64ec47b460b130d4ebc3f1448f2e4603, type: 3}
+      propertyPath: shootingPoint
+      value: 
+      objectReference: {fileID: 8304765789561515700}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64ec47b460b130d4ebc3f1448f2e4603, type: 3}
---- !u!1 &4300373391970972296 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4293717392552442953, guid: 64ec47b460b130d4ebc3f1448f2e4603, type: 3}
-  m_PrefabInstance: {fileID: 16791642274631361}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4300373391971397352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4293717392552796201, guid: 64ec47b460b130d4ebc3f1448f2e4603, type: 3}
@@ -305,16 +292,3 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 4293717392561819637, guid: 64ec47b460b130d4ebc3f1448f2e4603, type: 3}
   m_PrefabInstance: {fileID: 16791642274631361}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8304765790885584986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4300373391970972296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56cb603db45571942b1c06095da7daa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootingPoint: {fileID: 8304765789561515700}
