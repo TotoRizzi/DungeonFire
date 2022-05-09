@@ -19,6 +19,8 @@ public class TeleportingStar : MonoBehaviour
 
     [HideInInspector] public string sceneToGo;
 
+    bool hasEnteredTheCollider;
+
     private void Awake()
     {
         switch (lvlToGo)
@@ -32,18 +34,32 @@ public class TeleportingStar : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        ShowCanvas();
+        if (hasEnteredTheCollider) ShowCanvas();       
+        else HideCanvas();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        hasEnteredTheCollider = true;
+        ShowCanvas();
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        hasEnteredTheCollider = false;
+        HideCanvas();
+    }
     private void ShowCanvas()
     {
+        if (confirmCanvas.activeInHierarchy == true) return;
+
         confirmLevelButton.SetTeleportingStar(this);
         confirmCanvas.SetActive(true);
     }
     public void HideCanvas()
     {
         confirmCanvas.SetActive(false);
+        hasEnteredTheCollider = false;
     }
 }
