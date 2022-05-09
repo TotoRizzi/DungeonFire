@@ -13,7 +13,10 @@ public class PlayerAttackInAnimator : MonoBehaviour
     public void Attack()
     {
         if (shootingPoint != null)
+        {
             PlayerBasicBullet_Factory.instance.pool.GetObject().SetPosition(shootingPoint.position).SetRotation(transform.rotation);
-        else Debug.Log("No hay shootingPoint");
+            SoundManager.instance.PlaySound(Sounds.playerBullet);
+        }
+
     }
 }

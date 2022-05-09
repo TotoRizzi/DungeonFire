@@ -1,41 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum LvlToGo
 {
     LevelOne,
-    LevelTwo,
-    LevelThree,
-    LevelFour
 }
 public class TeleportingStar : MonoBehaviour
 {
     [SerializeField] LvlToGo lvlToGo;
-    private string sceneToGo;
+    [SerializeField] ConfirmLevelButton confirmLevelButton;
+    [SerializeField] GameObject confirmCanvas;
+    [SerializeField] TextMeshProUGUI text;
+
+    string lvlNumberText;
+
+    [HideInInspector] public string sceneToGo;
 
     private void Awake()
     {
         switch (lvlToGo)
         {
             case LvlToGo.LevelOne:
+
                 sceneToGo = "level 1";
-                    break;
-            case LvlToGo.LevelTwo:
-                sceneToGo = "level 2";
-                break;
-            case LvlToGo.LevelThree:
-                sceneToGo = "level 3";
-                break;
-            case LvlToGo.LevelFour:
-                sceneToGo = "level 4";
+                lvlNumberText = "Go to level one?";
+                text.text = lvlNumberText;
                 break;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(sceneToGo);
+        ShowCanvas();
+    }
+
+    private void ShowCanvas()
+    {
+        confirmLevelButton.SetTeleportingStar(this);
+        confirmCanvas.SetActive(true);
+    }
+    public void HideCanvas()
+    {
+        confirmCanvas.SetActive(false);
     }
 }
