@@ -23929,6 +23929,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1182405274, guid: e1e93f6aa312968408d29bf18dcbb86b, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1866104873, guid: e1e93f6aa312968408d29bf18dcbb86b, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4881911014750438464, guid: e1e93f6aa312968408d29bf18dcbb86b, type: 3}
       propertyPath: playerCanvas
       value: 
