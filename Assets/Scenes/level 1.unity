@@ -56216,10 +56216,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3095463141691542776, guid: 3bab40bf8218fc94ea10012cacce0bbf, type: 3}
-      propertyPath: playerBullet.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4199501384971819493, guid: 3bab40bf8218fc94ea10012cacce0bbf, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -56263,10 +56259,6 @@ PrefabInstance:
     - target: {fileID: 4199501384971819493, guid: 3bab40bf8218fc94ea10012cacce0bbf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5129967729675001906, guid: 3bab40bf8218fc94ea10012cacce0bbf, type: 3}
-      propertyPath: m_Volume
-      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6219539703956286673, guid: 3bab40bf8218fc94ea10012cacce0bbf, type: 3}
       propertyPath: m_Name
