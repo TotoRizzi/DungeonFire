@@ -106,7 +106,7 @@ public abstract class Enemy : MonoBehaviour
         vectorToPlayer.y = 1;
 
         RaycastHit ray;
-        if (Physics.Raycast(transform.position, vectorToPlayer, out ray, sightRange, (1 << LayerMask.NameToLayer("PlayerHitBox") | (1 << LayerMask.NameToLayer("Wall")))))
+        if (Physics.Raycast(transform.position, vectorToPlayer, out ray, sightRange, (1 << LayerMask.NameToLayer("Player") | (1 << LayerMask.NameToLayer("Wall")))))
         {
             if (ray.transform.tag == "Player")
             {

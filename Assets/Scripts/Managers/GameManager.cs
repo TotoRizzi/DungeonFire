@@ -14,10 +14,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject levelWonMenu;
     [SerializeField] GameObject playerCanvas;
 
+    public Player player;
+
     private void Awake()
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        player = FindObjectOfType<Player>();
     }
 
     public void AddEnemy(Enemy enemy)
@@ -39,8 +46,8 @@ public class GameManager : MonoBehaviour
 
     void LevelWon()
     {
+        player.canMove = false;
         StartCoroutine(ShowWonMenu(timeToRestart));
-
     }
 
     public void LevelFailed()

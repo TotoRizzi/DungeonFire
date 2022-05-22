@@ -1,26 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class Player : MonoBehaviour, IMovement, IDie
+public class Player : MonoBehaviour, IDie
 {
     #region Movement
-    [SerializeField] Controller moveController;
-    [SerializeField] Controller lookAndFireController;
+    public Controller moveController;
+    public Controller lookAndFireController;
 
-    Vector3 dirToMove;
-    Vector3 dirToLook;
+    PlayerController controller;
+
     Vector3 velocity;
 
     [SerializeField] float maxSpeed;
     [SerializeField] float maxMovingForce;
 
-    bool canMove = true;
+    [SerializeField] Rigidbody rb;
+
+    public bool canMove = true;
     bool isDead;
     #endregion
 
     #region Shooting
-    [SerializeField] float ShotCd = .3f;
+
+    [SerializeField] float shotCd = .3f;
     float currentShotCd;
 
     #endregion
@@ -37,6 +41,15 @@ public class Player : MonoBehaviour, IMovement, IDie
     Vector3 lastDamageDealer;
 
     bool isInKnockback;
+    bool fixedKnockBackForAnimation;
+    #endregion
+
+    #region PlaterView
+
+    public event Action<Vector3> onMovement = delegate { };
+    public event Action onKnockBack;
+    public event Action onDeath;
+    public event Action onShoot;
 
     #endregion
 
@@ -45,54 +58,54 @@ public class Player : MonoBehaviour, IMovement, IDie
 
     private void Awake()
     {
+        currentShotCd = shotCd;
+        
         knockBack = new KnockBackStrategy(transform, knockbackForce);
-        currentShotCd = ShotCd;
+        controller = new PlayerController(this, GetComponentInChildren<PlayerView>(), GetComponent<PlayerHealth>());
+    }
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
+    }
+    private void FixedUpdate()
+    {
         if (canMove)
         {
-            Move();
-            Look();
-        }
-        Knockback();
+            controller.OnUpdate();
+        }        
     }
-
-    public void Move()
+    public void Move(Vector3 _dirToMove)
     {
-        dirToMove = moveController.GetDir();
-        dirToMove.Normalize();
-        dirToMove *= maxSpeed;
+        _dirToMove *= maxSpeed;
 
-        Vector3 steering = dirToMove - velocity;
+        Vector3 steering = _dirToMove - velocity;
         steering = Vector3.ClampMagnitude(steering, maxMovingForce);
         ApplyForce(steering);
 
         if (velocity == Vector3.zero)
         {
-            anim.SetBool("isRunning", false);
+            onMovement(velocity);
             return;
         }
-        transform.position += velocity * Time.deltaTime;
+        
+        rb.MovePosition(transform.position + velocity * Time.fixedDeltaTime);
         transform.forward = velocity;
 
-        anim.SetBool("isRunning", true);
+        onMovement(velocity);
     }
 
-    private void Look()
+    public void Look(Vector3 _dirToLook)
     {
-        if (lookAndFireController.GetDir() != Vector3.zero)
+        if (_dirToLook != Vector3.zero)
         {
-            dirToLook = lookAndFireController.GetDir();
-
-            transform.forward = dirToLook;
+            transform.forward = _dirToLook;
 
             Shoot();
-        }
-        else
-        {
-            dirToLook = moveController.GetDir();
         }
     }
 
@@ -105,15 +118,10 @@ public class Player : MonoBehaviour, IMovement, IDie
     private void Shoot()
     {
         currentShotCd += Time.deltaTime;
-
-        if (currentShotCd >= ShotCd)
+        if (currentShotCd >= shotCd)
         {
-            anim.SetBool("attack", true);
+            onShoot();
             currentShotCd = 0;
-        }
-        else
-        {
-            anim.SetBool("attack", false);
         }
     }
 
@@ -122,14 +130,9 @@ public class Player : MonoBehaviour, IMovement, IDie
         lastDamageDealer = dmgDealer;
     }
 
-    public void SetKnockBackToTrue()
-    {
-        if (!isInKnockback) isInKnockback = true;
-    }
-
     public void Die()
     {
-        anim.SetTrigger("die");
+        onDeath();
         canMove = false;
         isDead = true;
         GameManager.instance.LevelFailed();
@@ -144,39 +147,31 @@ public class Player : MonoBehaviour, IMovement, IDie
 
     public virtual void Knockback()
     {
-        if (isInKnockback)
+        if (!fixedKnockBackForAnimation)
         {
-            anim.SetBool("hit", true);
-
-            if (currentKnockbackDuration < knockbackDuration)
-            {
-                currentKnockbackDuration += Time.deltaTime;
-                
-                knockBack.SetVariables(lastDamageDealer);
-
-                Vector3 lookAtLastDmgDealer = lastDamageDealer-transform.position;
-                lookAtLastDmgDealer.y = transform.position.y;
-
-                transform.forward = lookAtLastDmgDealer;
-
-                knockBack.Move();
-                canMove = false;
-            }
-            else
-            {
-                currentKnockbackDuration = 0;
-
-                StartCoroutine(ResetTime(resetTime));
-            }
+            fixedKnockBackForAnimation = true;
+            onKnockBack();
         }
-        else anim.SetBool("hit", false);
+
+        canMove = false;
+        knockBack.SetVariables(lastDamageDealer);
+
+        Vector3 lookAtLastDmgDealer = lastDamageDealer - transform.position;
+        lookAtLastDmgDealer.y = transform.position.y;
+
+        transform.forward = lookAtLastDmgDealer;
+
+        lookAtLastDmgDealer = lookAtLastDmgDealer.normalized * knockbackForce;
+        rb.AddForce(-lookAtLastDmgDealer, ForceMode.Impulse);
+
+        StartCoroutine(ResetTime(resetTime));       
     }
 
     IEnumerator ResetTime(float t)
     {
         yield return new WaitForSeconds(t);
 
-        isInKnockback = false;
+        fixedKnockBackForAnimation = false;
         if(!isDead) canMove = true;
     }
 }
