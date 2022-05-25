@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    protected FSMEnemy _myEnemy;
     [SerializeField] protected float speed;
     [SerializeField] protected float maxDistance = 3;
     protected float currentDistance = 0;
+    protected float dmg;
 
     public virtual void ShotCd()
     {
@@ -27,6 +29,18 @@ public class Bullet : MonoBehaviour
     public Bullet SetRotation(Quaternion rotation)
     {
         transform.rotation = rotation;
+        return this;
+    }
+
+    public Bullet SetEnemyDamage(FSMEnemy myEnemy)
+    {
+        dmg = myEnemy.attackDmg;
+        _myEnemy = myEnemy;
+        return this;
+    }
+    public Bullet SetPlayerDamage(Player player)
+    {
+        dmg = player.attackDmg;
         return this;
     }
 }

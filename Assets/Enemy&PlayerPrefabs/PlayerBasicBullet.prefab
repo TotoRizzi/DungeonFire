@@ -112,7 +112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   maxDistance: 3
-  bulletDamage: 1
   player: {fileID: 0}
 --- !u!54 &1708945284668308734
 Rigidbody:
@@ -128,7 +127,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!96 &-6465633157496193091
 TrailRenderer:

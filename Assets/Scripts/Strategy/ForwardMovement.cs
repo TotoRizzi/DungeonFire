@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class ForwardMovement : IMovement
 {
-    float speed;
-    Transform transform;
+    float _speed;
+    Transform _transform;
+    Rigidbody _rb;
 
-    public ForwardMovement(float _speed, Transform _transform)
+    public ForwardMovement(float speed, Transform transform, Rigidbody rb)
     {
-        speed = _speed;
-        transform = _transform;
+        _speed = speed;
+        _transform = transform;
+        _rb = rb;
     }
     public void Move()
     {
-        transform.position += transform.forward * speed * Time.deltaTime;
+        //_transform.position += _transform.forward * _speed * Time.deltaTime;
+        _rb.MovePosition(_transform.position + _transform.forward * _speed * Time.fixedDeltaTime);
     }
 }

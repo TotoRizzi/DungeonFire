@@ -6,13 +6,12 @@ public class PlayerBasicBullet : Bullet
 {
     IMovement forwardMovement;
 
-    [SerializeField] float bulletDamage;
     
     [SerializeField] Transform player;
 
     private void Awake()
     {
-        forwardMovement = new ForwardMovement(speed, transform);
+        forwardMovement = new ForwardMovement(speed, transform, GetComponent<Rigidbody>());
         player = GameObject.Find("Player").transform;
     }
 
@@ -46,9 +45,9 @@ public class PlayerBasicBullet : Bullet
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<IDamageable>() != null)
+        if(other.GetComponent<FSMEnemy>() != null)
         {
-            other.GetComponent<IDamageable>().TakeDamage(bulletDamage, player.position);
+            other.GetComponent<FSMEnemy>().enemyHealth.TakeDamage(dmg, player.position);
         }
 
         PlayerBasicBullet_Factory.instance.ReturnBullet(this);

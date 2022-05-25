@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    List <Enemy> currentEnemies = new List<Enemy>();
+    List <FSMEnemy> currentEnemies = new List<FSMEnemy>();
 
     [SerializeField] float timeToRestart;
 
@@ -27,13 +27,13 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<Player>();
     }
 
-    public void AddEnemy(Enemy enemy)
+    public void AddEnemy(FSMEnemy enemy)
     {
         if(!currentEnemies.Contains(enemy)) 
             currentEnemies.Add(enemy);
     }
 
-    public void RemoveEnemy(Enemy enemy)
+    public void RemoveEnemy(FSMEnemy enemy)
     {
         if (currentEnemies.Contains(enemy))
             currentEnemies.Remove(enemy);

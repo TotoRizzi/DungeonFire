@@ -30,7 +30,6 @@ public class PlayerView : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log("Shooting");
         anim.SetTrigger("Shoot");
     }
 

@@ -4,30 +4,25 @@ using UnityEngine;
 
 public class DirectedMovement : IMovement
 {
-    float speed;
-    Transform transform;
-    Transform target;
+    float _speed;
+    Transform _transform;
+    Transform _target;
+    Rigidbody _rb;
 
     Vector3 directionToTarget;
 
-    public DirectedMovement(float _speed, Transform _transform, Transform _target)
+    public DirectedMovement(float speed, Transform transform, Transform target, Rigidbody rb)
     {
-        speed = _speed;
-        transform = _transform;
-        target = _target;
+        _speed = speed;
+        _transform = transform;
+        _target = target;
+        _rb = rb;
     }
     public void Move()
     {
-        directionToTarget = GetDirectionToTarget().normalized;
+        directionToTarget = (_target.transform.position - _transform.position).normalized;
 
-        transform.position += directionToTarget * speed * Time.deltaTime;
-    }
-
-    public Vector3 GetDirectionToTarget()
-    {
-        directionToTarget = target.position - transform.position;
-        directionToTarget = new Vector3(directionToTarget.x, 0, directionToTarget.z);
-        
-        return directionToTarget;
+       // _transform.position += directionToTarget * _speed * Time.deltaTime;
+        _rb.MovePosition(_transform.position + directionToTarget * _speed * Time.fixedDeltaTime);
     }
 }

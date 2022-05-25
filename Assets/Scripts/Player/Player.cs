@@ -6,6 +6,7 @@ using System;
 public class Player : MonoBehaviour, IDie
 {
     #region Movement
+    [Header("Movement")]
     public Controller moveController;
     public Controller lookAndFireController;
 
@@ -24,8 +25,10 @@ public class Player : MonoBehaviour, IDie
 
     #region Shooting
 
+    [Header("Shooting")]
     [SerializeField] float shotCd = .3f;
     float currentShotCd;
+    public float attackDmg;
 
     #endregion
 
@@ -33,6 +36,7 @@ public class Player : MonoBehaviour, IDie
 
     KnockBackStrategy knockBack;
 
+    [Header("KnockBack")]
     [SerializeField] float knockbackForce;
     [SerializeField] float knockbackDuration;
     [SerializeField] float resetTime;
@@ -69,9 +73,6 @@ public class Player : MonoBehaviour, IDie
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
-    {
-    }
     private void FixedUpdate()
     {
         if (canMove)

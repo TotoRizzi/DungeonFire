@@ -5,9 +5,9 @@ using UnityEngine;
 public class ArcherBullet_Factory : MonoBehaviour
 {
     public static ArcherBullet_Factory instance;
-    public ObjectPool<ArcherBullet> pool;
+    public ObjectPool<EnemyBullet> pool;
 
-    public ArcherBullet ArcherBulletPrefab;
+    public EnemyBullet ArcherBulletPrefab;
 
     [SerializeField] int maxBulletCreated = 10;
 
@@ -26,16 +26,16 @@ public class ArcherBullet_Factory : MonoBehaviour
     private void Start()
     {
         //Creo el pool
-        pool = new ObjectPool<ArcherBullet>(BulletCreator, ArcherBullet.turnOn, ArcherBullet.turnOff, maxBulletCreated);
+        pool = new ObjectPool<EnemyBullet>(BulletCreator, EnemyBullet.turnOn, EnemyBullet.turnOff, maxBulletCreated);
     }
 
-    public ArcherBullet BulletCreator()
+    public EnemyBullet BulletCreator()
     {
         //La logica para crear el objeto
         return Instantiate(ArcherBulletPrefab);
     }
 
-    public void ReturnBullet(ArcherBullet b)
+    public void ReturnBullet(EnemyBullet b)
     {
         //Le devolvemos el objeto cuando sea necesario, lo llamamos desde el script PlayerBasicBullet
         pool.ReturnObject(b);
