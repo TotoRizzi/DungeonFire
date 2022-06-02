@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
-    [SerializeField] Transform targetToFollow;
+    Transform targetToFollow;
 
     [SerializeField] float cameraSpeed;
  

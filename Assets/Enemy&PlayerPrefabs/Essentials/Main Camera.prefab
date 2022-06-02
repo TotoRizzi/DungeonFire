@@ -96,6 +96,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ea3d3f03dd831489808fa0a4b34bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetToFollow: {fileID: 0}
-  cameraSpeed: 0.03
+  cameraSpeed: 4
   offset: {x: 0, y: 12, z: -6}

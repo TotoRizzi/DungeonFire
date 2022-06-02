@@ -31135,14 +31135,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7130972396511533168, guid: ba211d0849f2e354595971b7b1a76ae0, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7130972396511533168, guid: ba211d0849f2e354595971b7b1a76ae0, type: 3}
-      propertyPath: cameraSpeed
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7130972396511533169, guid: ba211d0849f2e354595971b7b1a76ae0, type: 3}
       propertyPath: m_RootOrder
       value: 0
