@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class LevelFailedButtons : MonoBehaviour
+public class LevelWonButtons : MonoBehaviour
 {
-    public void Retry()
+    public void NextLevel()
     {
-        GameManager.instance.Retry();
+        LevelManager.instance.NextLevel();
     }
+
     public void Menu()
     {
         GameManager.instance.GoToMenu();

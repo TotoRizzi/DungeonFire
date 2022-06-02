@@ -57,7 +57,9 @@ public class JumpState : IState
 
             if(!_hasAlreadyJumped)
             {
-                _jumpFunction();
+                if (_myGroundCheck.isGrounded)
+                    _jumpFunction();
+
                 _hasAlreadyJumped = true;
             }
 
