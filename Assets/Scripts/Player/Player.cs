@@ -54,6 +54,7 @@ public class Player : MonoBehaviour, IDie
     public event Action onKnockBack;
     public event Action onDeath;
     public event Action onShoot;
+    public event Action cancelShoot;
 
     #endregion
 
@@ -107,6 +108,10 @@ public class Player : MonoBehaviour, IDie
             transform.forward = _dirToLook;
 
             Shoot();
+        }
+        else
+        {
+            cancelShoot();
         }
     }
 

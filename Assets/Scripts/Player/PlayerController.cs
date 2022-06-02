@@ -20,6 +20,7 @@ public class PlayerController
 		playerModel.onDeath += v.Death;
 		playerModel.onKnockBack += v.KnockBack;
 		playerModel.onShoot += v.Shoot;
+		playerModel.cancelShoot += v.CancelShoot;
 		ph.onLifeChanged += v.SetHealthBar;
 
 

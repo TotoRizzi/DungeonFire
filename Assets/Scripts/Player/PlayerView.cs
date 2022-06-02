@@ -30,7 +30,11 @@ public class PlayerView : MonoBehaviour
 
     public void Shoot()
     {
-        anim.SetTrigger("Shoot");
+        anim.SetBool("Shoot", true);
+    }
+    public void CancelShoot()
+    {
+        anim.SetBool("Shoot", false);
     }
 
     public void Movement(Vector3 v)
