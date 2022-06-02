@@ -56202,6 +56202,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5284826079073441241, guid: 1cfe732cf31fbb041863f74882053684, type: 3}
+      propertyPath: _allLevels.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284826079073441241, guid: 1cfe732cf31fbb041863f74882053684, type: 3}
+      propertyPath: _allLevels.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284826079073441241, guid: 1cfe732cf31fbb041863f74882053684, type: 3}
+      propertyPath: _allLevels.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284826079073441241, guid: 1cfe732cf31fbb041863f74882053684, type: 3}
+      propertyPath: _allLevels.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284826079073441241, guid: 1cfe732cf31fbb041863f74882053684, type: 3}
+      propertyPath: _allLevels.Array.data[3]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284826079073441241, guid: 1cfe732cf31fbb041863f74882053684, type: 3}
+      propertyPath: _allLevels.Array.data[4]
+      value: level 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5284826079073441254, guid: 1cfe732cf31fbb041863f74882053684, type: 3}
       propertyPath: m_RootOrder
       value: 8

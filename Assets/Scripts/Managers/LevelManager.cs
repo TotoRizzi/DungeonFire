@@ -6,22 +6,21 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
     
-    public string[] newLevelOrder;
-    public int levelDifficulty;
+    public int[] newLevelOrder;
     public int currentLevel;
     
-    [SerializeField] List<string> _allLevels = new List<string>();
+    [SerializeField] List<int> _allLevels = new List<int>();
 
-    private int _maxLevels = 5;
+    private int _maxLevels = 4;
 
     private void Awake()
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
+        newLevelOrder = new int[_maxLevels];
     }
     private void Start()
     {
-        newLevelOrder = new string[_maxLevels];
     }
     public void SetNewOrderOfLevels()
     {
@@ -42,11 +41,12 @@ public class LevelManager : MonoBehaviour
     public void NextLevel()
     {
         currentLevel++;
-        if (currentLevel < newLevelOrder.Length)
+        if (currentLevel <= newLevelOrder.Length)
         {
+            int fixedCurrrentLevel = currentLevel - 1;
             GameManager.instance.SaveData();
-            //LoadScene(newLevelOrder[currentLevel--]);
-            Debug.Log((newLevelOrder[currentLevel--]));
+            LoadScene("level " + newLevelOrder[fixedCurrrentLevel]);
+            Debug.Log((newLevelOrder[fixedCurrrentLevel]));
         }
     }
 

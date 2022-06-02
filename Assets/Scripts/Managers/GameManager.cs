@@ -20,6 +20,17 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<Player>();
         LoadData();
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            LevelManager.instance.NextLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.B))
+        {
+            LevelManager.instance.SetNewOrderOfLevels();
+        }
+    }
 
     #region Enemy Manager
 
@@ -94,33 +105,33 @@ public class GameManager : MonoBehaviour
 
     #region SaveData
 
-    [HideInInspector] private string _currentLevelPrefsName = "CurrentLevel";
-    [HideInInspector] private string _firstLevelPrefsName = "FirstLevel";
-    [HideInInspector] private string _secondLevelPrefsName = "SecondLevel";
-    [HideInInspector] private string _thirdLevelPrefsName = "ThirdLevel";
-    [HideInInspector] private string _fourthLevelPrefsName = "FourthLevel";
-    [HideInInspector] private string _fifthLevelPrefsName = "FifthLevel";
+    private string _currentLevelPrefsName = "CurrentLevel";
+    private string _firstLevelPrefsName = "FirstLevel";
+    private string _secondLevelPrefsName = "SecondLevel";
+    private string _thirdLevelPrefsName = "ThirdLevel";
+    private string _fourthLevelPrefsName = "FourthLevel";
+    //private string _fifthLevelPrefsName = "FifthLevel";
 
     public void SaveData()
     {
         PlayerPrefs.SetInt(_currentLevelPrefsName, LevelManager.instance.currentLevel);
 
-        PlayerPrefs.SetString(_firstLevelPrefsName, LevelManager.instance.newLevelOrder[0]);
-        PlayerPrefs.SetString(_secondLevelPrefsName, LevelManager.instance.newLevelOrder[1]);
-        PlayerPrefs.SetString(_thirdLevelPrefsName, LevelManager.instance.newLevelOrder[2]);
-        PlayerPrefs.SetString(_fourthLevelPrefsName, LevelManager.instance.newLevelOrder[3]);
-        PlayerPrefs.SetString(_fifthLevelPrefsName, LevelManager.instance.newLevelOrder[4]);
+        PlayerPrefs.SetInt(_firstLevelPrefsName, LevelManager.instance.newLevelOrder[0]);
+        PlayerPrefs.SetInt(_secondLevelPrefsName, LevelManager.instance.newLevelOrder[1]);
+        PlayerPrefs.SetInt(_thirdLevelPrefsName, LevelManager.instance.newLevelOrder[2]);
+        PlayerPrefs.SetInt(_fourthLevelPrefsName, LevelManager.instance.newLevelOrder[3]);
+        //PlayerPrefs.SetString(_fifthLevelPrefsName, LevelManager.instance.newLevelOrder[4]);
 
     }
     private void LoadData()
     {
         LevelManager.instance.currentLevel = PlayerPrefs.GetInt(_currentLevelPrefsName, 0);
 
-        LevelManager.instance.newLevelOrder[0] = PlayerPrefs.GetString(_firstLevelPrefsName, "level 1");
-        LevelManager.instance.newLevelOrder[1] = PlayerPrefs.GetString(_secondLevelPrefsName, "level 2");
-        LevelManager.instance.newLevelOrder[2] = PlayerPrefs.GetString(_thirdLevelPrefsName, "level 3");
-        LevelManager.instance.newLevelOrder[3] = PlayerPrefs.GetString(_fourthLevelPrefsName, "level 4");
-        LevelManager.instance.newLevelOrder[4] = PlayerPrefs.GetString(_fifthLevelPrefsName, "level 5");
+        LevelManager.instance.newLevelOrder[0] = PlayerPrefs.GetInt(_firstLevelPrefsName, 1);
+        LevelManager.instance.newLevelOrder[1] = PlayerPrefs.GetInt(_secondLevelPrefsName, 2);
+        LevelManager.instance.newLevelOrder[2] = PlayerPrefs.GetInt(_thirdLevelPrefsName, 3);
+        LevelManager.instance.newLevelOrder[3] = PlayerPrefs.GetInt(_fourthLevelPrefsName, 4);
+        //LevelManager.instance.newLevelOrder[4] = PlayerPrefs.GetString(_fifthLevelPrefsName, "level 5");
     }
     #endregion
 }
