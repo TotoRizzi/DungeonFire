@@ -6,7 +6,7 @@ public class LevelWonButtons : MonoBehaviour
 {
     public void NextLevel()
     {
-        LevelManager.instance.NextLevel();
+        GameManager.instance.myLevelManager.NextLevel();
     }
 
     public void Menu()
