@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fsm: {fileID: 0}
   anim: {fileID: 0}
-  attackDmg: 0
+  attackDmg: 2
   speed: 1
   sightRange: 10
   _maxHealth: 10

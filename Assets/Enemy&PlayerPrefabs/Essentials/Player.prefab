@@ -118,7 +118,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   canMove: 1
   shotCd: 0.3
-  attackDmg: 3
+  attackDmg: 1
   knockbackForce: 5
   knockbackDuration: 0.05
   resetTime: 0.3
@@ -271,7 +271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6789957123899799167, guid: d7f484fa7bacf8b4295d489ab94703a9, type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: PlayerCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 6789957124276886595, guid: d7f484fa7bacf8b4295d489ab94703a9, type: 3}
       propertyPath: m_LocalScale.x

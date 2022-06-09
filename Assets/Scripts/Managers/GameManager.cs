@@ -10,8 +10,11 @@ public class GameManager : MonoBehaviour
     public Player player;
 
     public int currentLevel = 0;
+    private int maxLevels;
     public LevelManager myLevelManager;
     public List<int> allLevels = new List<int>();
+
+    [SerializeField] GameObject teleportingStar;
 
     private void Awake()
     {
@@ -24,22 +27,14 @@ public class GameManager : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
         LoadData();
+        maxLevels = allLevels.Count;
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            myLevelManager.NextLevel();
-        }
-        else if (Input.GetKeyDown(KeyCode.B))
-        {
+            ClearLevelOrderData();
             myLevelManager.SetNewOrderOfLevels();
-
-            PlayerPrefs.DeleteKey("CurrentLevel");
-            PlayerPrefs.DeleteKey("FirstLevel");
-            PlayerPrefs.DeleteKey("SecondLevel");
-            PlayerPrefs.DeleteKey("ThirdLevel");
-            PlayerPrefs.DeleteKey("FourthLevel");
         }
     }
 
@@ -59,7 +54,8 @@ public class GameManager : MonoBehaviour
 
         if(currentEnemies.Count == 0)
         {
-            LevelWon();
+            if (currentLevel >= maxLevels) GameWon();
+            else if (!teleportingStar.activeInHierarchy) teleportingStar.SetActive(true);
         }
     }
 
@@ -67,13 +63,14 @@ public class GameManager : MonoBehaviour
 
     #region LevelOutcome Manager
 
-    [SerializeField] float timeToRestart;
+    float timeToRestart = 2f;
 
     [SerializeField] GameObject levelFailedMenu;
     [SerializeField] GameObject levelWonMenu;
     [SerializeField] GameObject playerCanvas;
 
-    void LevelWon()
+
+    void GameWon()
     {
         player.canMove = false;
         StartCoroutine(ShowWonMenu(timeToRestart));
@@ -122,8 +119,14 @@ public class GameManager : MonoBehaviour
     private string _secondLevelPrefsName = "SecondLevel";
     private string _thirdLevelPrefsName = "ThirdLevel";
     private string _fourthLevelPrefsName = "FourthLevel";
-    //private string _fifthLevelPrefsName = "FifthLevel";
 
+    public void ClearLevelOrderData()
+    {
+        PlayerPrefs.DeleteKey(_firstLevelPrefsName);
+        PlayerPrefs.DeleteKey(_secondLevelPrefsName);
+        PlayerPrefs.DeleteKey(_thirdLevelPrefsName);
+        PlayerPrefs.DeleteKey(_fourthLevelPrefsName);
+    }
     public void SaveData()
     {
         PlayerPrefs.SetInt(_currentLevelPrefsName, currentLevel);
@@ -132,10 +135,8 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt(_secondLevelPrefsName, myLevelManager.newLevelOrder[1]);
         PlayerPrefs.SetInt(_thirdLevelPrefsName, myLevelManager.newLevelOrder[2]);
         PlayerPrefs.SetInt(_fourthLevelPrefsName, myLevelManager.newLevelOrder[3]);
-        //PlayerPrefs.SetString(_fifthLevelPrefsName, LevelManager.instance.newLevelOrder[4]);
-
     }
-    private void LoadData()
+    public void LoadData()
     {
         currentLevel = PlayerPrefs.GetInt(_currentLevelPrefsName, 0);
 
@@ -143,7 +144,6 @@ public class GameManager : MonoBehaviour
         myLevelManager.newLevelOrder[1] = PlayerPrefs.GetInt(_secondLevelPrefsName, 2);
         myLevelManager.newLevelOrder[2] = PlayerPrefs.GetInt(_thirdLevelPrefsName, 3);
         myLevelManager.newLevelOrder[3] = PlayerPrefs.GetInt(_fourthLevelPrefsName, 4);
-        //LevelManager.instance.newLevelOrder[4] = PlayerPrefs.GetString(_fifthLevelPrefsName, "level 5");
     }
     #endregion
 }

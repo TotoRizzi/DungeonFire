@@ -8,8 +8,13 @@ public class ConfirmLevelButton : MonoBehaviour
 
     public void Yes()
     {
-        SceneManager.LoadScene(thisStar.sceneToGo);
+        if (thisStar.lvlToGo == LvlToGo.LevelOne)
+        {
+            GameManager.instance.ClearLevelOrderData();
+            GameManager.instance.myLevelManager.SetNewOrderOfLevels();
+        }
 
+        GameManager.instance.myLevelManager.NextLevel();
     }
     public void No()
     {

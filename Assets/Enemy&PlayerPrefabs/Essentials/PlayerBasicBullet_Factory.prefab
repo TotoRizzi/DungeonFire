@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerBasicBulletPrefab: {fileID: 7059977107666224779, guid: 7f027a8d290c142498c558af3f579684, type: 3}
-  maxBulletCreated: 3
+  maxBulletCreated: 5

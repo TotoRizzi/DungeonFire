@@ -7,17 +7,16 @@ using UnityEngine.SceneManagement;
 public enum LvlToGo
 {
     LevelOne,
+    NextLevel
 }
 public class TeleportingStar : MonoBehaviour
 {
-    [SerializeField] LvlToGo lvlToGo;
+    public LvlToGo lvlToGo;
     [SerializeField] ConfirmLevelButton confirmLevelButton;
     [SerializeField] GameObject confirmCanvas;
     [SerializeField] TextMeshProUGUI text;
 
     string lvlNumberText;
-
-    [HideInInspector] public string sceneToGo;
 
     bool hasEnteredTheCollider;
 
@@ -27,8 +26,11 @@ public class TeleportingStar : MonoBehaviour
         {
             case LvlToGo.LevelOne:
 
-                sceneToGo = "level 1";
-                lvlNumberText = "Go to level one?";
+                lvlNumberText = "Ready to start?";
+                text.text = lvlNumberText;
+                break;
+            case LvlToGo.NextLevel:
+                lvlNumberText = "Next Level?";
                 text.text = lvlNumberText;
                 break;
         }
@@ -43,12 +45,10 @@ public class TeleportingStar : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         hasEnteredTheCollider = true;
-        ShowCanvas();
     }
     private void OnTriggerExit(Collider other)
     {
         hasEnteredTheCollider = false;
-        HideCanvas();
     }
     private void ShowCanvas()
     {
