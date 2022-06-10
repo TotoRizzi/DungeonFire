@@ -363,6 +363,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8304765790708219166}
     m_Modifications:
+    - target: {fileID: 706680614120873276, guid: 64ec47b460b130d4ebc3f1448f2e4603, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4293717392552442953, guid: 64ec47b460b130d4ebc3f1448f2e4603, type: 3}
       propertyPath: m_Name
       value: PlayerModel
