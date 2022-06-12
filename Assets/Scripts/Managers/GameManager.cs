@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class GameManager : MonoBehaviour
     public LevelManager myLevelManager;
     public List<int> allLevels = new List<int>();
 
-    [SerializeField] GameObject teleportingStar;
+    GameObject teleportingStar;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<Player>();
         LoadData();
         maxLevels = allLevels.Count;
+        SetTeleportingStar();
     }
     private void Update()
     {
@@ -38,9 +40,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    #region Points
+
+    private int _points;
+    [SerializeField] TextMeshProUGUI _pointsText;
+
+    public void AddPoints(int p)
+    {
+        _points += p;
+        _pointsText.text = "Points: " + _points.ToString();
+        SavePoints();
+    }
+
+    public void ResetPoints()
+    {
+        _points = 0;
+        _pointsText.text = "Points: " + _points.ToString();
+        SavePoints();
+
+    }
+
+    #endregion
+
     #region Enemy Manager
 
-    List <FSMEnemy> currentEnemies = new List<FSMEnemy>();
+    List<FSMEnemy> currentEnemies = new List<FSMEnemy>();
     public void AddEnemy(FSMEnemy enemy)
     {
         if(!currentEnemies.Contains(enemy)) 
@@ -69,7 +93,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject levelWonMenu;
     [SerializeField] GameObject playerCanvas;
 
-
+    void SetTeleportingStar()
+    {
+        teleportingStar = GameObject.Find("TeleportingStar");
+        if(teleportingStar) teleportingStar.SetActive(false);
+    }
     void GameWon()
     {
         player.canMove = false;
@@ -87,7 +115,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(t);
 
-        levelFailedMenu.SetActive(true);    
+        levelFailedMenu.SetActive(true);
     }
     IEnumerator ShowWonMenu(float t)
     {
@@ -102,7 +130,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Main Menu");
     }
-    public void Retry()
+    public void Revive()
     {
         levelFailedMenu.SetActive(false);
         playerCanvas.SetActive(true);
@@ -120,6 +148,12 @@ public class GameManager : MonoBehaviour
     private string _thirdLevelPrefsName = "ThirdLevel";
     private string _fourthLevelPrefsName = "FourthLevel";
 
+    private string _pointsPrefsName = "Points";
+
+    public void SavePoints()
+    {
+        PlayerPrefs.SetInt(_pointsPrefsName, _points);
+    }
     public void ClearLevelOrderData()
     {
         PlayerPrefs.DeleteKey(_firstLevelPrefsName);
@@ -138,12 +172,20 @@ public class GameManager : MonoBehaviour
     }
     public void LoadData()
     {
+        #region Level Manager
         currentLevel = PlayerPrefs.GetInt(_currentLevelPrefsName, 0);
 
         myLevelManager.newLevelOrder[0] = PlayerPrefs.GetInt(_firstLevelPrefsName, 1);
         myLevelManager.newLevelOrder[1] = PlayerPrefs.GetInt(_secondLevelPrefsName, 2);
         myLevelManager.newLevelOrder[2] = PlayerPrefs.GetInt(_thirdLevelPrefsName, 3);
         myLevelManager.newLevelOrder[3] = PlayerPrefs.GetInt(_fourthLevelPrefsName, 4);
+
+        #endregion
+
+        #region Points
+        _points = PlayerPrefs.GetInt(_pointsPrefsName, 0);
+        _pointsText.text = "Points: " + _points.ToString();
+        #endregion
     }
     #endregion
 }

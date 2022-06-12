@@ -9443,11 +9443,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c51460ef91ad674f82829be68182dc7, type: 3}
---- !u!4 &348496417 stripped
+--- !u!4 &348496417
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 8059578894044811307, guid: 9c51460ef91ad674f82829be68182dc7, type: 3}
   m_PrefabInstance: {fileID: 348496416}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506443541}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 586629748}
+  m_RootOrder: 37
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &348859296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17518,11 +17527,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6051774238658581891, guid: e46aaa932dee43848b7c15c6ce20395d, type: 3}
   m_PrefabInstance: {fileID: 617514251}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &625221509 stripped
+--- !u!4 &625221509
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 8059578894044811307, guid: 9c51460ef91ad674f82829be68182dc7, type: 3}
   m_PrefabInstance: {fileID: 689550810}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907748478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 586629748}
+  m_RootOrder: 35
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &628097111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23565,6 +23583,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4601707210110975237, guid: 451c88694c5c9dc438f598e3bed67b05, type: 3}
   m_PrefabInstance: {fileID: 873770826}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &874360341 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2076361122005777699, guid: 309ee8b13c85de744b50bbd5f5ca039c, type: 3}
+  m_PrefabInstance: {fileID: 1074927249}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &875199233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24035,6 +24064,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4881911014750438464, guid: e1e93f6aa312968408d29bf18dcbb86b, type: 3}
+      propertyPath: _pointsText
+      value: 
+      objectReference: {fileID: 874360341}
     - target: {fileID: 4881911014750438464, guid: e1e93f6aa312968408d29bf18dcbb86b, type: 3}
       propertyPath: playerCanvas
       value: 
@@ -24508,6 +24541,22 @@ Transform:
   m_Father: {fileID: 259514627}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &907748478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 333385326309026152, guid: 9c51460ef91ad674f82829be68182dc7, type: 3}
+  m_PrefabInstance: {fileID: 689550810}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 625221509}
+  m_Layer: 0
+  m_Name: 'torch (25) (Missing Prefab with guid: 9c51460ef91ad674f82829be68182dc7)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &909973574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40412,6 +40461,22 @@ Transform:
   m_Father: {fileID: 1716012151}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &1506443541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 333385326309026152, guid: 9c51460ef91ad674f82829be68182dc7, type: 3}
+  m_PrefabInstance: {fileID: 348496416}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 348496417}
+  m_Layer: 0
+  m_Name: 'torch (26) (Missing Prefab with guid: 9c51460ef91ad674f82829be68182dc7)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &1506887543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58487,7 +58552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7604149308466761356, guid: 962a14312c15c384682d2b2b39a6b504, type: 3}
       propertyPath: m_Name
-      value: TeleportingStar
+      value: TeleportStar
       objectReference: {fileID: 0}
     - target: {fileID: 7604149308466761356, guid: 962a14312c15c384682d2b2b39a6b504, type: 3}
       propertyPath: m_Layer

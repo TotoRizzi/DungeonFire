@@ -51,7 +51,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   attackDmg: 2
   speed: 1
-  sightRange: 10
+  sightRange: 30
   _maxHealth: 3
   _attackRange: 5
 --- !u!65 &1376876595366368076

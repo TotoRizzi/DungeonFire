@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelFailedButtons : MonoBehaviour
 {
-    public void Retry()
-    {
-        GameManager.instance.Retry();
-    }
     public void Menu()
     {
         GameManager.instance.GoToMenu();
+    }
+    public void Revive()
+    {
+        GameManager.instance.Revive();
     }
 }

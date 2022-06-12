@@ -46,6 +46,10 @@ public class PlayerView : MonoBehaviour
     {
         anim.SetTrigger("Die");
     }
+    public void Revive()
+    {
+        anim.SetTrigger("Revive");
+    }
 
     public void SetHealthBar(float _currentHealth, float _maxHealth)
     {

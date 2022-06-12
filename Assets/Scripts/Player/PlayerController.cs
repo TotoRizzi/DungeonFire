@@ -18,11 +18,11 @@ public class PlayerController
 
 		playerModel.onMovement += v.Movement;
 		playerModel.onDeath += v.Death;
+		playerModel.onRevive += v.Revive;
 		playerModel.onKnockBack += v.KnockBack;
 		playerModel.onShoot += v.Shoot;
 		playerModel.cancelShoot += v.CancelShoot;
 		ph.onLifeChanged += v.SetHealthBar;
-
 
 		_moveController = m.moveController;
 		_lookAndFireController = m.lookAndFireController;

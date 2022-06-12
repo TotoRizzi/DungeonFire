@@ -29,6 +29,8 @@ public class FSMEnemy : MonoBehaviour , IDie
     private float _knockbackForce = 4f;
     private float _resetTime = .3f;
 
+    private int _ponitsToGive;
+
     public virtual void Awake()
     {
         fsm = new StateMachine();
@@ -45,6 +47,7 @@ public class FSMEnemy : MonoBehaviour , IDie
     public virtual void Start()
     {
         GameManager.instance.AddEnemy(this);
+        _ponitsToGive = Mathf.RoundToInt(_maxHealth);
     }
     public virtual void Update()
     {
@@ -99,6 +102,7 @@ public class FSMEnemy : MonoBehaviour , IDie
         if (anim != null) anim.SetTrigger("die");
         else Destroy(this.gameObject);
 
+        GameManager.instance.AddPoints(_ponitsToGive);
         GameManager.instance.RemoveEnemy(this);
 
         canMove = false;

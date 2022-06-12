@@ -53,6 +53,7 @@ public class Player : MonoBehaviour, IDie
     public event Action<Vector3> onMovement = delegate { };
     public event Action onKnockBack;
     public event Action onDeath;
+    public event Action onRevive;
     public event Action onShoot;
     public event Action cancelShoot;
 
@@ -146,9 +147,9 @@ public class Player : MonoBehaviour, IDie
 
     public void Revive()
     {
+        onRevive();
         isDead = false;
         canMove = true;
-        anim.SetTrigger("revive");
     }
 
     public virtual void Knockback()

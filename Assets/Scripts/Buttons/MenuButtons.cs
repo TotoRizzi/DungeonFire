@@ -19,7 +19,7 @@ public class MenuButtons : MonoBehaviour
     }
     public void Menu()
     {
-
+        GameManager.instance.GoToMenu();
     }
     public void Credits()
     {
@@ -28,6 +28,11 @@ public class MenuButtons : MonoBehaviour
     public void Quit()
     {
 
+    }
+
+    public void ResetPoints()
+    {
+        GameManager.instance.ResetPoints();
     }
 
     public void Back()
