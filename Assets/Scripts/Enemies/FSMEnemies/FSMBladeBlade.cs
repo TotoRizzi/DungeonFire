@@ -7,6 +7,7 @@ public class FSMBladeBlade : FSMEnemy
     [SerializeField] private float _jumpForce;
     [SerializeField] private float jumpCd;
     [SerializeField] private float _attackRange;
+    [SerializeField] BoxCollider _myAttackCollider;
 
     GroundCheck _groundCheck;
     Action _jumpFunction;
@@ -29,5 +30,11 @@ public class FSMBladeBlade : FSMEnemy
     public void Jump()
     {
         rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        _myAttackCollider.enabled = false;
     }
 }

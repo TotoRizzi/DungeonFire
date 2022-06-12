@@ -18,7 +18,7 @@ public class FSMEnemyHealth
     public void TakeDamage(float dmg, Vector3 damageDealer)
     {
         _currentHealth -= dmg;
-        _thisEnemy.Knockback(damageDealer);
+        _thisEnemy.Knockback();
 
         if (_currentHealth <= 0) _thisEnemy.Die();
     }

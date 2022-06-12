@@ -75,17 +75,11 @@ public class FSMEnemy : MonoBehaviour , IDie
         transform.LookAt(dirToLook);
     }
 
-    public void Knockback(Vector3 dmgDealer)
+    public void Knockback()
     {
         canMove = false;
 
-        Vector3 lookAtDmgDealer = dmgDealer - transform.position;
-        lookAtDmgDealer.y = transform.rotation.y;
-
-        transform.forward = lookAtDmgDealer;
-
-        lookAtDmgDealer = lookAtDmgDealer.normalized * _knockbackForce;
-        rb.AddForce(-lookAtDmgDealer, ForceMode.Impulse);
+        rb.AddForce(-transform.forward * _knockbackForce, ForceMode.Impulse);
 
         StartCoroutine(ResetTime(_resetTime));
     }
@@ -97,7 +91,7 @@ public class FSMEnemy : MonoBehaviour , IDie
         if (isAlive) canMove = true;
     }
 
-    public void Die()
+    public virtual void Die()
     {
         if (anim != null) anim.SetTrigger("die");
         else Destroy(this.gameObject);

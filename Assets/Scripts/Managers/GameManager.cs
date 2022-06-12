@@ -145,9 +145,7 @@ public class GameManager : MonoBehaviour
     }
     public void Revive()
     {
-        levelFailedMenu.SetActive(false);
-        playerCanvas.SetActive(true);
-
+        ClearPlayerHealth();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     #endregion
@@ -180,6 +178,10 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.DeleteKey(_thirdLevelPrefsName);
         PlayerPrefs.DeleteKey(_fourthLevelPrefsName);
 
+        ClearPlayerHealth();
+    }
+    public void ClearPlayerHealth()
+    {
         PlayerPrefs.DeleteKey(_playerHealth);
     }
     public void SaveData()

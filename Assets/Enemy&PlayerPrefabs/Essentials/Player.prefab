@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.085093, y: 35.412296}
-  m_SizeDelta: {x: 136.1699, y: 29.1754}
+  m_AnchoredPosition: {x: 49.75, y: 35.412296}
+  m_SizeDelta: {x: 199.5, y: 29.1754}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2438977879807482610
 CanvasRenderer:
@@ -366,7 +366,6 @@ MonoBehaviour:
   shotCd: 0.3
   attackDmg: 1
   knockbackForce: 5
-  knockbackDuration: 0.05
   resetTime: 0.3
   anim: {fileID: 4300373391961604404}
 --- !u!65 &8304765790708219164
@@ -423,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
-  healthBar: {fileID: 8304765790708219154}
+  currentHealth: 0
 --- !u!1001 &903869714
 PrefabInstance:
   m_ObjectHideFlags: 0
