@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class MainMenu : MonoBehaviour
+public class mainmenu : MonoBehaviour
 {
    public void PlayGame()
     {
-        SceneManager.LoadScene("The Real deal"); 
+        SceneManager.LoadScene("The Real deal");
     }
     public void QuitGame()
     {

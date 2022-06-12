@@ -80,7 +80,7 @@ public class FSMEnemy : MonoBehaviour , IDie
         canMove = false;
 
         Vector3 lookAtDmgDealer = dmgDealer - transform.position;
-        lookAtDmgDealer.y = transform.position.y;
+        lookAtDmgDealer.y = transform.rotation.y;
 
         transform.forward = lookAtDmgDealer;
 

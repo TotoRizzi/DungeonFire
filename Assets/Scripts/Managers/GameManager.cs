@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public Player player;
+    public PlayerHealth playerHealth;
 
     public int currentLevel = 0;
     private int maxLevels;
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>();
+        playerHealth = FindObjectOfType<PlayerHealth>();
         LoadData();
         maxLevels = allLevels.Count;
         SetTeleportingStar();
@@ -73,13 +75,24 @@ public class GameManager : MonoBehaviour
 
     public void RemoveEnemy(FSMEnemy enemy)
     {
+         Vector3 starNewPos = Vector3.zero;
+        if(currentEnemies.Count == 1)
+        {
+            starNewPos = currentEnemies[0].transform.position;
+            starNewPos.y = 1.5f;
+        }
+
         if (currentEnemies.Contains(enemy))
             currentEnemies.Remove(enemy);
 
         if(currentEnemies.Count == 0)
         {
             if (currentLevel >= maxLevels) GameWon();
-            else if (!teleportingStar.activeInHierarchy) teleportingStar.SetActive(true);
+            else if (!teleportingStar.activeInHierarchy)
+            {
+                teleportingStar.SetActive(true);
+                teleportingStar.transform.position = starNewPos;
+            }
         }
     }
 
@@ -149,10 +162,16 @@ public class GameManager : MonoBehaviour
     private string _fourthLevelPrefsName = "FourthLevel";
 
     private string _pointsPrefsName = "Points";
+    private string _playerHealth = "PlayerHealth";
 
     public void SavePoints()
     {
         PlayerPrefs.SetInt(_pointsPrefsName, _points);
+    }
+
+    public void SavePlayerHealth(float ph)
+    {
+        PlayerPrefs.SetFloat(_playerHealth, ph);
     }
     public void ClearLevelOrderData()
     {
@@ -160,6 +179,8 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.DeleteKey(_secondLevelPrefsName);
         PlayerPrefs.DeleteKey(_thirdLevelPrefsName);
         PlayerPrefs.DeleteKey(_fourthLevelPrefsName);
+
+        PlayerPrefs.DeleteKey(_playerHealth);
     }
     public void SaveData()
     {
@@ -182,9 +203,14 @@ public class GameManager : MonoBehaviour
 
         #endregion
 
-        #region Points
+        #region Player
+
         _points = PlayerPrefs.GetInt(_pointsPrefsName, 0);
         _pointsText.text = "Points: " + _points.ToString();
+
+        playerHealth.currentHealth = PlayerPrefs.GetFloat(_playerHealth, playerHealth.maxHealth);
+        playerHealth.ChangeHealthBar();
+
         #endregion
     }
     #endregion

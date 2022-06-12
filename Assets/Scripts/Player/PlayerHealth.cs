@@ -7,10 +7,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 {
     public event Action<float,float> onLifeChanged = delegate { };
 
-    [SerializeField] float maxHealth = 10;
-    float currentHealth;
-
-    [SerializeField] HealthBar healthBar;
+    public float maxHealth = 10;
+    public float currentHealth;
 
     Player player;
 
@@ -21,22 +19,23 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        currentHealth = maxHealth;
         onLifeChanged(currentHealth, maxHealth);
     }
     public void TakeDamage(float dmg, Vector3 damageDealer)
     {
-        //player.SetKnockBackToTrue();
-
         player.Knockback();
 
         currentHealth -= dmg;
-
-        onLifeChanged(currentHealth, maxHealth);
-        //healthBar.SetHealthBar(currentHealth, maxHealth);
+        GameManager.instance.SavePlayerHealth(currentHealth);
+        ChangeHealthBar();
 
         player.SetDamageDealer(damageDealer);
 
         if (currentHealth <= 0) player.Die();
+    }
+    public void ChangeHealthBar()
+    {
+        onLifeChanged(currentHealth, maxHealth);
+
     }
 }

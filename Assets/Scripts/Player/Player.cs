@@ -38,13 +38,10 @@ public class Player : MonoBehaviour, IDie
 
     [Header("KnockBack")]
     [SerializeField] float knockbackForce;
-    [SerializeField] float knockbackDuration;
     [SerializeField] float resetTime;
-    float currentKnockbackDuration;
 
     Vector3 lastDamageDealer;
 
-    bool isInKnockback;
     bool fixedKnockBackForAnimation;
     #endregion
 
