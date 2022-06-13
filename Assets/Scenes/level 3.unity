@@ -3952,6 +3952,10 @@ PrefabInstance:
       value: torch (4)
       objectReference: {fileID: 0}
     - target: {fileID: 5661790817645026154, guid: 693ae4ceb3deec548bb3241440690bd4, type: 3}
+      propertyPath: m_Range
+      value: 23.157343
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661790817645026154, guid: 693ae4ceb3deec548bb3241440690bd4, type: 3}
       propertyPath: m_Lightmapping
       value: 1
       objectReference: {fileID: 0}
@@ -5914,6 +5918,10 @@ PrefabInstance:
     - target: {fileID: 5498415061790977418, guid: 693ae4ceb3deec548bb3241440690bd4, type: 3}
       propertyPath: m_Name
       value: torch (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661790817645026154, guid: 693ae4ceb3deec548bb3241440690bd4, type: 3}
+      propertyPath: m_Range
+      value: 31.408388
       objectReference: {fileID: 0}
     - target: {fileID: 5661790817645026154, guid: 693ae4ceb3deec548bb3241440690bd4, type: 3}
       propertyPath: m_Lightmapping
