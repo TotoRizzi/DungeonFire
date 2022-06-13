@@ -8095,7 +8095,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pouch
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 957375846660143762, guid: c8993664480799b4c9e369050d21a760, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c8993664480799b4c9e369050d21a760, type: 3}
 --- !u!4 &271357937 stripped
 Transform:
@@ -12841,7 +12842,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 765612374564137410, guid: 829b19349267ad74ead07b241ded9624, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 829b19349267ad74ead07b241ded9624, type: 3}
 --- !u!4 &442292260 stripped
 Transform:
@@ -16380,7 +16382,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6942124705999356066, guid: 20e2724b0b85f5b438f7334b6bc2aecc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 20e2724b0b85f5b438f7334b6bc2aecc, type: 3}
 --- !u!4 &560948594 stripped
 Transform:
@@ -20095,7 +20098,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soup_Plate (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6540719383791084850, guid: 363298e279e5ff846917616e906be284, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 363298e279e5ff846917616e906be284, type: 3}
 --- !u!4 &678358527 stripped
 Transform:
@@ -23565,7 +23569,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soup_Plate (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6540719383791084850, guid: 363298e279e5ff846917616e906be284, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 363298e279e5ff846917616e906be284, type: 3}
 --- !u!4 &788184055 stripped
 Transform:
@@ -25060,7 +25065,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plate (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3393347232745842327, guid: 0303a20943c8abd428e33a6e45b74db9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0303a20943c8abd428e33a6e45b74db9, type: 3}
 --- !u!4 &866189986 stripped
 Transform:
@@ -26694,7 +26700,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6942124705999356066, guid: 20e2724b0b85f5b438f7334b6bc2aecc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 20e2724b0b85f5b438f7334b6bc2aecc, type: 3}
 --- !u!4 &927568090 stripped
 Transform:
@@ -26838,7 +26845,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pouch (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 957375846660143762, guid: c8993664480799b4c9e369050d21a760, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c8993664480799b4c9e369050d21a760, type: 3}
 --- !u!4 &929933380 stripped
 Transform:
@@ -27672,7 +27680,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6942124705999356066, guid: 20e2724b0b85f5b438f7334b6bc2aecc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 20e2724b0b85f5b438f7334b6bc2aecc, type: 3}
 --- !u!4 &962779957 stripped
 Transform:
@@ -36117,7 +36126,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soup_Plate (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6540719383791084850, guid: 363298e279e5ff846917616e906be284, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 363298e279e5ff846917616e906be284, type: 3}
 --- !u!4 &1318876641 stripped
 Transform:
@@ -39406,7 +39416,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6942124705999356066, guid: 20e2724b0b85f5b438f7334b6bc2aecc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 20e2724b0b85f5b438f7334b6bc2aecc, type: 3}
 --- !u!4 &1465697716 stripped
 Transform:
@@ -39468,7 +39479,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6942124705999356066, guid: 20e2724b0b85f5b438f7334b6bc2aecc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 20e2724b0b85f5b438f7334b6bc2aecc, type: 3}
 --- !u!4 &1466980321 stripped
 Transform:
@@ -39863,7 +39875,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soup_Plate (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6540719383791084850, guid: 363298e279e5ff846917616e906be284, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 363298e279e5ff846917616e906be284, type: 3}
 --- !u!4 &1477591836 stripped
 Transform:
@@ -41956,7 +41969,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 765612374564137410, guid: 829b19349267ad74ead07b241ded9624, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 829b19349267ad74ead07b241ded9624, type: 3}
 --- !u!4 &1546276577 stripped
 Transform:
@@ -46679,7 +46693,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plate (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3393347232745842327, guid: 0303a20943c8abd428e33a6e45b74db9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0303a20943c8abd428e33a6e45b74db9, type: 3}
 --- !u!4 &1716156221 stripped
 Transform:
@@ -46897,7 +46912,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pouch (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 957375846660143762, guid: c8993664480799b4c9e369050d21a760, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c8993664480799b4c9e369050d21a760, type: 3}
 --- !u!4 &1720833277 stripped
 Transform:
@@ -47108,7 +47124,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soup_Plate
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6540719383791084850, guid: 363298e279e5ff846917616e906be284, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 363298e279e5ff846917616e906be284, type: 3}
 --- !u!4 &1725102885 stripped
 Transform:
@@ -49273,7 +49290,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plate (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3393347232745842327, guid: 0303a20943c8abd428e33a6e45b74db9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0303a20943c8abd428e33a6e45b74db9, type: 3}
 --- !u!4 &1814149078 stripped
 Transform:
@@ -50807,7 +50825,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6942124705999356066, guid: 20e2724b0b85f5b438f7334b6bc2aecc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 20e2724b0b85f5b438f7334b6bc2aecc, type: 3}
 --- !u!4 &1886773164 stripped
 Transform:
@@ -55259,7 +55278,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 765612374564137410, guid: 829b19349267ad74ead07b241ded9624, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 829b19349267ad74ead07b241ded9624, type: 3}
 --- !u!4 &2066417867 stripped
 Transform:
@@ -55321,7 +55341,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plate
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3393347232745842327, guid: 0303a20943c8abd428e33a6e45b74db9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0303a20943c8abd428e33a6e45b74db9, type: 3}
 --- !u!4 &2068763808 stripped
 Transform:
@@ -56940,7 +56961,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soup_Plate (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6540719383791084850, guid: 363298e279e5ff846917616e906be284, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 363298e279e5ff846917616e906be284, type: 3}
 --- !u!4 &2139512302 stripped
 Transform:
@@ -57002,7 +57024,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pouch
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 957375846660143762, guid: c8993664480799b4c9e369050d21a760, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c8993664480799b4c9e369050d21a760, type: 3}
 --- !u!4 &2140163974 stripped
 Transform:
