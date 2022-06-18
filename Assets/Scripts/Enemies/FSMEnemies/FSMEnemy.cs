@@ -20,16 +20,11 @@ public class FSMEnemy : MonoBehaviour , IDie
     protected bool canMove = true;
     protected bool isAlive = true;
 
-    [SerializeField] protected float speed;
-    [SerializeField] protected float sightRange = 10f;
-
-    [SerializeField] private float _maxHealth;
-
     private BoxCollider _myCollider;
     private float _knockbackForce = 4f;
     private float _resetTime = .3f;
 
-    private int _ponitsToGive;
+    protected int ponitsToGive;
 
     public virtual void Awake()
     {
@@ -41,13 +36,10 @@ public class FSMEnemy : MonoBehaviour , IDie
         _myCollider = GetComponent<BoxCollider>();
 
         anim = GetComponentInChildren<Animator>();
-
-        enemyHealth = new FSMEnemyHealth(_maxHealth, this);
     }
     public virtual void Start()
     {
         GameManager.instance.AddEnemy(this);
-        _ponitsToGive = Mathf.RoundToInt(_maxHealth);
     }
     public virtual void Update()
     {
@@ -59,7 +51,7 @@ public class FSMEnemy : MonoBehaviour , IDie
         vectorToPlayer.y = 1;
 
         RaycastHit ray;
-        if (Physics.Raycast(transform.position, vectorToPlayer, out ray, sightRange, (1 << LayerMask.NameToLayer("Player") | (1 << LayerMask.NameToLayer("Wall")))))
+        if (Physics.Raycast(transform.position, vectorToPlayer, out ray, FlyweightPointer.AllEnemies.sightRange, (1 << LayerMask.NameToLayer("Player") | (1 << LayerMask.NameToLayer("Wall")))))
         {
             if (ray.transform.tag == "Player")
             {
@@ -96,7 +88,7 @@ public class FSMEnemy : MonoBehaviour , IDie
         if (anim != null) anim.SetTrigger("die");
         else Destroy(this.gameObject);
 
-        GameManager.instance.AddPoints(_ponitsToGive);
+        GameManager.instance.AddPoints(ponitsToGive);
         GameManager.instance.RemoveEnemy(this);
 
         canMove = false;
