@@ -47,6 +47,12 @@ public class GameManager : MonoBehaviour
     private int _points;
     [SerializeField] TextMeshProUGUI _pointsText;
 
+    public void AddRewardPoints()
+    {
+        _points += 50;
+        _pointsText.text = "Points: " + _points.ToString();
+        SavePoints();
+    }
     public void AddPoints(int p)
     {
         _points += p;
