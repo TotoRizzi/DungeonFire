@@ -1307,7 +1307,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerHealth: {fileID: 0}
   currentLevel: 0
-  allLevels: 010000000200000003000000
+  allLevels: 01000000020000000300000005000000
   _pointsText: {fileID: 0}
   levelFailedMenu: {fileID: 722582782}
   levelWonMenu: {fileID: 1173207257}
